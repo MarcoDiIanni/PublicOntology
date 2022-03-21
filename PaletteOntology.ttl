@@ -1,0 +1,4379 @@
+# baseURI: http://fhnw.ch/modelingEnvironment/PaletteOntology
+# imports: http://fhnw.ch/modelingEnvironment/LanguageOntology
+# prefix: po
+
+@prefix archi: <http://ikm-group.ch/archiMEO/archimate#> .
+@prefix bpmn: <http://ikm-group.ch/archiMEO/BPMN#> .
+@prefix dsml4ptm: <http://fhnw.ch/modelingEnvironment/DSML4PTM#> .
+@prefix lo: <http://fhnw.ch/modelingEnvironment/LanguageOntology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix po: <http://fhnw.ch/modelingEnvironment/PaletteOntology#> .
+@prefix questionnaire: <http://ikm-group.ch/archiMEO/questionnaire#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sapscenes: <http://fhnw.ch/SAPScenesOntology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix top: <http://ikm-group.ch/archiMEO/top#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sapscenes:Canvases
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://fhnw.ch/SAPScenes#SceneObject> ;
+.
+sapscenes:EmpathyMap
+  rdf:type owl:Class ;
+  rdfs:subClassOf sapscenes:Canvases ;
+.
+sapscenes:Feel
+  rdf:type owl:Class ;
+  rdfs:label "Feel" ;
+  rdfs:subClassOf sapscenes:EmpathyMapping ;
+.
+sapscenes:Gain
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:GainCreator
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:Name
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain sapscenes:EmpathyMap ;
+  rdfs:label "Name" ;
+  rdfs:range xsd:string ;
+.
+sapscenes:Pain
+  rdf:type owl:Class ;
+  rdfs:label "Pain" ;
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:PainReliever
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:Saying
+  rdf:type owl:Class ;
+  rdfs:label "Saying" ;
+  rdfs:subClassOf sapscenes:EmpathyMapping ;
+.
+sapscenes:Services
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:ToDo
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:ValuePropositionCanvas
+  rdf:type owl:Class ;
+  rdfs:subClassOf sapscenes:Canvases ;
+.
+sapscenes:ValuePropositionMapping
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://fhnw.ch/SAPScenes#SceneObject> ;
+.
+sapscenes:leadsTo
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain sapscenes:EmpathyMapping ;
+  rdfs:label "An Empathy Element can lead to a Value Proposition element" ;
+  rdfs:range sapscenes:ValuePropositionMapping ;
+.
+dsml4ptm:ICFStandard
+  rdf:type owl:Class ;
+.
+lo:CanvasView
+  lo:isMainModelingView "true"^^xsd:boolean ;
+.
+<http://fhnw.ch/modelingEnvironment/PaletteOntology>
+  owl:imports <http://fhnw.ch/modelingEnvironment/LanguageOntology> ;
+.
+po:AccelerationArrow
+  rdf:type po:ArrowHead ;
+  rdfs:label "AccelerationArrow" ;
+.
+po:Access
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConnectorConfiguresArrowStroke po:Dash ;
+  po:paletteConnectorConfiguresToArrowHead po:OpenTriangle ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_Connectors ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:Access ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Access" ;
+.
+po:Accessory
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Accessory.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Accessory.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Accessory ;
+  rdfs:label "Accessory" ;
+.
+po:Activity
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Call_Activity.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Call_Activity.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Activity ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Call_Activity.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Activity" ;
+.
+po:Activity_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Call_Activity.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Call_Activity.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Activity ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Call_Activity.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Activity" ;
+.
+po:AcuteHospitalOU
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "OrganizationalUnitAcuteHospital-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "OrganizationalUnitAcuteHospital-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:OrganizationalUnit ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_OrganizationalUnit ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:AcuteHospitalOU ;
+  rdfs:label "Acute Hospital" ;
+.
+po:AcuteHospitalPool
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "Hospital.png" ;
+  po:paletteConstructHasPaletteThumbnail "Hospital.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Pool_4DSML4PTM ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Swimlanes4DSML ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:AcuteHospitalPool ;
+  rdfs:label "Acute Hospital" ;
+.
+po:AcutePhysicianRole
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "RoleAcutePhysician-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "RoleAcutePhysician-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Role ;
+  po:paletteConstructHasWidth 50 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Role ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:AcutePhysicianRole ;
+  rdfs:label "Acute Physician Role" ;
+.
+po:AdministrativeStaffRole
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "RoleAdministrativeStaff-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "RoleAdministrativeStaff-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Role ;
+  po:paletteConstructHasWidth 50 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Role ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:AdministrativeStaffRole ;
+  rdfs:label "Administrative Staff Role" ;
+.
+po:Airport
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Airport.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Airport.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Airport ;
+  rdfs:label "Airport" ;
+.
+po:ApplicationComponent
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "ApplicationComponent.png" ;
+  po:paletteConstructHasPaletteThumbnail "ApplicationComponent_Thumbnail.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_ApplicationLayer ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:ApplicationComponent ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-right" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Application Component" ;
+.
+po:ApplicationService
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "ApplicationService.png" ;
+  po:paletteConstructHasPaletteThumbnail "ApplicationService_Thumbnail.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_ApplicationLayer ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:ApplicationService ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-right" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Application Service" ;
+.
+po:ArchiMate_ApplicationLayer
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:ArchiMateView ;
+  po:paletteCategoryOrderNumber 2 ;
+  rdfs:label "Application Layer" ;
+.
+po:ArchiMate_BusinessLayer
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:ArchiMateView ;
+  po:paletteCategoryOrderNumber 1 ;
+  rdfs:label "Business Layer" ;
+.
+po:ArchiMate_Connectors
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:ArchiMateView ;
+  po:paletteCategoryOrderNumber 4 ;
+  rdfs:label "ArchiMate Connectors" ;
+.
+po:ArchiMate_General
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:ArchiMate ;
+  rdfs:label "ArchiMate General" ;
+.
+po:ArchiMate_TechnologyLayer
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:ArchiMateView ;
+  po:paletteCategoryOrderNumber 3 ;
+  rdfs:label "Technology Layer" ;
+.
+po:Architecture
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Architecture.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Architecture.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Architecture ;
+  rdfs:label "Architecture" ;
+.
+po:Arrow
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Arrow.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Arrow.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Arrow ;
+  rdfs:label "Arrow" ;
+.
+po:ArrowConstruct
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+po:ArrowHead
+  rdf:type owl:Class ;
+  rdfs:subClassOf po:ArrowConstruct ;
+.
+po:ArrowStroke
+  rdf:type owl:Class ;
+  rdfs:subClassOf po:ArrowConstruct ;
+.
+po:Association_4DSML4PTM
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConnectorConfiguresArrowStroke po:Dot ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "BPMN_association.png" ;
+  po:paletteConstructHasPaletteThumbnail "BPMN_association.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Association ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Association" ;
+.
+po:Association_BPMN
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConnectorConfiguresArrowStroke po:Dot ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "BPMN_association.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_DataAssociation.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Association ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Association" ;
+.
+po:BackSlash
+  rdf:type po:ArrowHead ;
+  rdf:type po:ArrowStroke ;
+  rdfs:label "BackSlash" ;
+.
+po:Background
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Background.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Background.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Background ;
+  rdfs:label "Background" ;
+.
+po:Backward
+  rdf:type po:ArrowHead ;
+  rdfs:label "Backward" ;
+.
+po:BackwardBoomerang
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardBoomerang" ;
+.
+po:BackwardCircleFork
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardCircleFork" ;
+.
+po:BackwardCircleLineFork
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardCircleLineFork" ;
+.
+po:BackwardDoubleFeathers
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardDoubleFeathers" ;
+.
+po:BackwardFeather
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardFeather" ;
+.
+po:BackwardFork
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardFork" ;
+.
+po:BackwardHalfTriangleBottom
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardHalfTriangleBottom" ;
+.
+po:BackwardHalfTriangleTop
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardHalfTriangleTop" ;
+.
+po:BackwardLineFork
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardLineFork" ;
+.
+po:BackwardOpenTriangle
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardOpenTriangle" ;
+.
+po:BackwardOpenTriangleBottom
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardOpenTriangleBottom" ;
+.
+po:BackwardOpenTriangleLine
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardOpenTriangleLine" ;
+.
+po:BackwardOpenTriangleTop
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardOpenTriangleTop" ;
+.
+po:BackwardSemiCircle
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardSemiCircle" ;
+.
+po:BackwardTriangle
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardTriangle" ;
+.
+po:BackwardTripleFeathers
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardTripleFeathers" ;
+.
+po:BackwardV
+  rdf:type po:ArrowHead ;
+  rdfs:label "BackwardV" ;
+.
+po:Bar
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Bar.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Bar.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Bar ;
+  rdfs:label "Bar" ;
+.
+po:BelongsTo_DKM
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "belongsTo-dkm.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_belongsTo-dkm.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4DKModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/modelingEnvironment/dkmm#Belongs_To> ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "belongs to" ;
+.
+po:BelongsTo_OrgM
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "BelongsTo-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_BelongsTo-OM.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4OrganizationalView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#Belonging> ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "belongs to" ;
+.
+po:Bench
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Bench.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Bench.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Bench ;
+  rdfs:label "Bench" ;
+.
+po:BigCircle
+  rdf:type po:ArrowStroke ;
+  rdfs:label "BigCircle" ;
+.
+po:BigEndArrow
+  rdf:type po:ArrowHead ;
+  rdfs:label "BigEndArrow" ;
+.
+po:BigHouse
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "BigHouse.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_BigHouse.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Building ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:BigHouse ;
+  rdfs:label "Big House" ;
+.
+po:BigSign
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "BigSign.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_BigSign.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Sign ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:BigSign ;
+  rdfs:label "Big Sign" ;
+.
+po:Bike
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Bike.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Bike.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:TransportationElement ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Bike ;
+  rdfs:label "Bike" ;
+.
+po:BlindHem
+  rdf:type po:ArrowStroke ;
+  rdfs:label "BlindHem" ;
+.
+po:Block
+  rdf:type po:ArrowHead ;
+  rdfs:label "Block" ;
+.
+po:Boomerang
+  rdf:type po:ArrowHead ;
+  rdfs:label "Boomerang" ;
+.
+po:BoxArrow
+  rdf:type po:ArrowHead ;
+  rdfs:label "BoxArrow" ;
+.
+po:Building
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Building.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Building.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Building ;
+  rdfs:label "Building" ;
+.
+po:Bus
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Bus.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Bus.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:TransportationElement ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Bus ;
+  rdfs:label "Bus" ;
+.
+po:BusinessActor
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "BusinessActor.png" ;
+  po:paletteConstructHasPaletteThumbnail "BusinessActor.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_BusinessLayer ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:BusinessActor ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-right" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Business Actor" ;
+.
+po:BusinessFunction
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "BusinessFunction.png" ;
+  po:paletteConstructHasPaletteThumbnail "BusinessFunction.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_BusinessLayer ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:BusinessFunction ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-right" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Business Function" ;
+.
+po:BusinessMan
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "BusinessMan.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_BusinessMan.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Character ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:BusinessMan ;
+  rdfs:label "Business Man" ;
+.
+po:BusinessObject
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "BusinessObject.png" ;
+  po:paletteConstructHasPaletteThumbnail "BusinessObject_Thumbnail.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_BusinessLayer ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:BusinessObject ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-right" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Business Object" ;
+.
+po:BusinessProcess
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "BusinessProcess.png" ;
+  po:paletteConstructHasPaletteThumbnail "BusinessProcess_Thumbnail.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_BusinessLayer ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:BusinessProcess ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-right" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Business Process" ;
+.
+po:BusinessRole
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "BusinessRole.png" ;
+  po:paletteConstructHasPaletteThumbnail "BusinessRole.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_BusinessLayer ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:BusinessRole ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-right" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Business Role" ;
+.
+po:BusinessRuleTask
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Business_Rule_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Business_Rule_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Task ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:BusinessRuleTask ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Send_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Business Rule Task" ;
+.
+po:BusinessRuleTask_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Business_Rule_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Business_Rule_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Task_4DSML4PTM ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:BusinessRuleTask ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Send_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Business Rule Task" ;
+.
+po:BusinessService
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "BusinessService.png" ;
+  po:paletteConstructHasPaletteThumbnail "BusinessService.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_BusinessLayer ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:BusinessService ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-right" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Business Service" ;
+.
+po:BusinessWoman
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "BusinessWoman.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_BusinessWoman.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Character ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:BusinessWoman ;
+  rdfs:label "Business Woman" ;
+.
+po:Cabinets
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Cabinets.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Cabinets.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Cabinets ;
+  rdfs:label "Cabinets" ;
+.
+po:Cafe
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Cafe.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Cafe.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Cafe ;
+  rdfs:label "Cafe" ;
+.
+po:CanvasBackground
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:CanvasView ;
+  po:paletteCategoryOrderNumber 1 ;
+  rdfs:label "Canvas Background" ;
+.
+po:CanvasEmpathy
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:CanvasView ;
+  po:paletteCategoryOrderNumber 2 ;
+  rdfs:label "Empathy Map" ;
+.
+po:CanvasValueProposition
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:CanvasView ;
+  po:paletteCategoryOrderNumber 3 ;
+  rdfs:label "Value Proposition" ;
+.
+po:Car
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Car.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Car.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:TransportationElement ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Car ;
+  rdfs:label "Car" ;
+.
+po:CareUnitOU
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "OrganizationalUnitCareUnit-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "OrganizationalUnitCareUnit-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:OrganizationalUnit ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_OrganizationalUnit ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:CareUnitOU ;
+  rdfs:label "Care Unit " ;
+.
+po:CashRegisterTable
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "CashRegisterTable.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_CashRegisterTable.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:CashRegisterTable ;
+  rdfs:label "Cash Register Table" ;
+.
+po:Category_Activities
+  rdf:type po:PaletteCategory_BPMN ;
+  po:categoryIsShownInModelingView lo:ProcessModelingView ;
+  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
+  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#CMMN_1.1> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
+  rdfs:label "Activities" ;
+.
+po:Category_Activities4BPMNProcessModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:BPaaSProcessModelingView ;
+  po:paletteCategoryOrderNumber 1 ;
+  rdfs:label "Activities" ;
+.
+po:Category_Activities4DSML4PTMProcessModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMProcessModelingView ;
+  po:paletteCategoryOrderNumber 1 ;
+  rdfs:label "Activities" ;
+.
+po:Category_BusinessKnowledge
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMDecisionModelingView ;
+  rdfs:label "Business Knowledge" ;
+.
+po:Category_Conditions
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMControlElementModelingView ;
+  rdfs:label "Conditions" ;
+.
+po:Category_Connectors
+  rdf:type po:PaletteCategory_BPMN ;
+  po:categoryIsShownInModelingView lo:ProcessModelingView ;
+  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
+  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#CMMN_1.1> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:ControlElementModelingLanguage ;
+  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#DMN_1.1> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:DocumentAndKnowledgeModelingLanguage ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:OrganizationalModelingLanguage ;
+  rdfs:label "Connectors" ;
+.
+po:Category_Connectors4BPMNProcessModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:BPaaSProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:WorkflowModelingView ;
+  po:paletteCategoryOrderNumber 7 ;
+  rdfs:label "Connectors" ;
+.
+po:Category_Connectors4ControlElementModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMControlElementModelingView ;
+  rdfs:label "Connectors" ;
+.
+po:Category_Connectors4DKModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMDocumentKnowledgeModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:DocumentKnolwedgeModelingView ;
+  po:paletteCategoryOrderNumber 2 ;
+  rdfs:label "Connectors" ;
+.
+po:Category_Connectors4DSML4PTMProcessModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMProcessModelingView ;
+  po:paletteCategoryOrderNumber 7 ;
+  rdfs:label "Connectors" ;
+.
+po:Category_Connectors4DecisionModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMDecisionModelingView ;
+  rdfs:label "Connectors" ;
+.
+po:Category_Connectors4OrganizationalView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:OrganizationalView ;
+  po:paletteCategoryOrderNumber 4 ;
+  rdfs:label "Connectors" ;
+.
+po:Category_Data
+  rdf:type po:PaletteCategory_BPMN ;
+  po:categoryIsShownInModelingView lo:ProcessModelingView ;
+  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:DocumentAndKnowledgeModelingLanguage ;
+  rdfs:label "Data" ;
+.
+po:Category_Data4BPMNProcessModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:BPaaSProcessModelingView ;
+  po:paletteCategoryOrderNumber 2 ;
+  rdfs:label "Data" ;
+.
+po:Category_Data4DSML4PTMProcessModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMProcessModelingView ;
+  po:paletteCategoryOrderNumber 2 ;
+  rdfs:label "Data" ;
+.
+po:Category_Decision
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMDecisionModelingView ;
+  rdfs:label "Decisions" ;
+.
+po:Category_DecisionTable
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMDecisionModelingView ;
+  rdfs:label "Decision Tables" ;
+.
+po:Category_Document4DKModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DocumentKnolwedgeModelingView ;
+  po:paletteCategoryOrderNumber 1 ;
+  rdfs:label "Documents" ;
+.
+po:Category_Document4DSML4PTMDocumentView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMDocumentKnowledgeModelingView ;
+  po:paletteCategoryOrderNumber 1 ;
+  rdfs:label "Documents" ;
+.
+po:Category_Events
+  rdf:type po:PaletteCategory_BPMN ;
+  po:categoryIsShownInModelingView lo:ProcessModelingView ;
+  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
+  rdfs:label "Events" ;
+.
+po:Category_Events4BPMNProcessModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:BPaaSProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMProcessModelingView ;
+  po:paletteCategoryOrderNumber 3 ;
+  rdfs:label "Events" ;
+.
+po:Category_Gateways
+  rdf:type po:PaletteCategory_BPMN ;
+  po:categoryIsShownInModelingView lo:ProcessModelingView ;
+  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
+  rdfs:label "Gateways" ;
+.
+po:Category_Gateways4BPMNProcessModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:BPaaSProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMProcessModelingView ;
+  po:paletteCategoryOrderNumber 4 ;
+  rdfs:label "Gateways" ;
+.
+po:Category_Groups
+  rdf:type po:PaletteCategory_BPMN ;
+  po:categoryIsShownInModelingView lo:ProcessModelingView ;
+  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:DocumentAndKnowledgeModelingLanguage ;
+  rdfs:label "Groups" ;
+.
+po:Category_Groups4BPMNProcessModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMProcessModelingView ;
+  po:paletteCategoryOrderNumber 5 ;
+  rdfs:label "Groups" ;
+.
+po:Category_Groups4BPaaSProcessModelingView
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:BPaaSProcessModelingView ;
+  po:paletteCategoryOrderNumber 5 ;
+  rdfs:label "Groups" ;
+.
+po:Category_InputData
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMDecisionModelingView ;
+  rdfs:label "Input Data" ;
+.
+po:Category_KnowledgeSource
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMDecisionModelingView ;
+  rdfs:label "Knowledge Source" ;
+.
+po:Category_OrganizationalUnit
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:OrganizationalView ;
+  po:paletteCategoryOrderNumber 1 ;
+  rdfs:label "Organizational Units" ;
+.
+po:Category_Performer
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:OrganizationalView ;
+  po:paletteCategoryOrderNumber 3 ;
+  rdfs:label "Performers" ;
+.
+po:Category_Role
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:OrganizationalView ;
+  po:paletteCategoryOrderNumber 2 ;
+  rdfs:label "Roles" ;
+.
+po:Category_Sentry
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMControlElementModelingView ;
+  rdfs:label "Sentry" ;
+.
+po:Category_Swimlanes
+  rdf:type po:PaletteCategory_BPMN ;
+  po:categoryIsShownInModelingView lo:ProcessModelingView ;
+  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
+  rdfs:label "Swimlanes" ;
+.
+po:Category_Swimlanes4BPMN
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:BPaaSProcessModelingView ;
+  po:paletteCategoryOrderNumber 6 ;
+  rdfs:label "Swimlanes" ;
+.
+po:Category_Swimlanes4DSML
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:DSML4PTMProcessModelingView ;
+  po:paletteCategoryOrderNumber 6 ;
+  rdfs:label "Swimlanes" ;
+.
+po:Chair
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Chair.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Chair.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Chair ;
+  rdfs:label "Chair" ;
+.
+po:Character
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Character.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Character.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Character ;
+  rdfs:label "Character" ;
+.
+po:Chevron
+  rdf:type po:ArrowHead ;
+  rdfs:label "Chevron" ;
+.
+po:Circle
+  rdf:type po:ArrowHead ;
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Circle" ;
+.
+po:CircleEndedArrow
+  rdf:type po:ArrowHead ;
+  rdfs:label "CircleEndedArrow" ;
+.
+po:CircleFork
+  rdf:type po:ArrowHead ;
+  rdfs:label "CircleFork" ;
+.
+po:CircleLine
+  rdf:type po:ArrowHead ;
+  rdfs:label "CircleLine" ;
+.
+po:CircleLineFork
+  rdf:type po:ArrowHead ;
+  rdfs:label "CircleLineFork" ;
+.
+po:City
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "City.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_City.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:City ;
+  rdfs:label "City" ;
+.
+po:CloseTransferCaseRecord
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_User_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:UserTask ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:CloseTransferCaseRecord ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label """Close Transfer Case Record
+ """ ;
+.
+po:CoffeeCorner
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "CoffeeCorner.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_CoffeeCorner.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:CoffeeCorner ;
+  rdfs:label "Coffee Corner" ;
+.
+po:CoffeeCup
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "CoffeeCup.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_CoffeeCup.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Accessory ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:CoffeeCup ;
+  rdfs:label "Coffee Cup" ;
+.
+po:Coil
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Coil" ;
+.
+po:ConcaveTailArrow
+  rdf:type po:ArrowHead ;
+  rdfs:label "ConcaveTailArrow" ;
+.
+po:ConfirmTransfer
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_User_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:UserTask ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:ConfirmTransfer ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Confirm Transfer" ;
+.
+po:Couch
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Couch.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Couch.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Couch ;
+  rdfs:label "Couch" ;
+.
+po:Countryside
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Countryside.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Countryside.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Countryside ;
+  rdfs:label "Countryside" ;
+.
+po:CryingBubble
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "CryingBubble.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_CryingBubble.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:SpeechBubble ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:CryingBubble ;
+  rdfs:label "Crying Bubble" ;
+.
+po:Dash
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Dash" ;
+.
+po:DataDocument
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "DataDoucment-dkm.png" ;
+  po:paletteConstructHasPaletteThumbnail "DataDoucment-dkm.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Document4DKModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/modelingEnvironment/dkmm#Data_Document> ;
+  rdfs:label "Data Document " ;
+.
+po:DataDocument_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "DataDoucment-dkm.png" ;
+  po:paletteConstructHasPaletteThumbnail "DataDoucment-dkm.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Document4DSML4PTMDocumentView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/modelingEnvironment/dkmm#Data_Document> ;
+  rdfs:label "Data Document" ;
+.
+po:DataInput
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "data_input.png" ;
+  po:paletteConstructHasPaletteThumbnail "data_input.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:DataObject ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Data4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:DataInput ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "DataInput.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Data Input" ;
+.
+po:DataInput_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "data_input.png" ;
+  po:paletteConstructHasPaletteThumbnail "data_input.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:DataObject_4DSML4PTM ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Data4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:DataInput ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "DataInput.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Data Input" ;
+.
+po:DataObject
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "DataObject.png" ;
+  po:paletteConstructHasPaletteThumbnail "DataObject.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Data4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:DataObject ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "DataObject.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Data Object" ;
+.
+po:DataObject_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "DataObject.png" ;
+  po:paletteConstructHasPaletteThumbnail "DataObject.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Data4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:DataObject ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "DataObject.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Data Object" ;
+.
+po:DataOutput
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "data_output.png" ;
+  po:paletteConstructHasPaletteThumbnail "data_output.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:DataObject ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Data4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:DataOutput ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "DataOutput.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Data Output" ;
+.
+po:DataOutput_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "data_output.png" ;
+  po:paletteConstructHasPaletteThumbnail "data_output.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:DataObject_4DSML4PTM ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:DataOutput ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "DataOutput.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Data Output" ;
+.
+po:DataStore
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "data_storage.png" ;
+  po:paletteConstructHasPaletteThumbnail "data_storage.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Data4BPMNProcessModelingView ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Data4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:DataStore ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "DataObject.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Data Store" ;
+.
+po:Dentil
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Dentil" ;
+.
+po:DesktopSetting
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "DesktopSetting.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_DesktopSetting.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:DesktopSetting ;
+  rdfs:label "Desktop Setting" ;
+.
+po:Device
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Device.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Device.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Device ;
+  rdfs:label "Device" ;
+.
+po:Diamond
+  rdf:type po:ArrowHead ;
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Diamond" ;
+.
+po:DiamondCircle
+  rdf:type po:ArrowHead ;
+  rdfs:label "DiamondCircle" ;
+.
+po:DirectionSign
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "DirectionSign.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_DirectionSign.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Sign ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:DirectionSign ;
+  rdfs:label "Direction Sign" ;
+.
+po:DiscretionaryTask
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Discretionary_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Discretionary_Task.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://ikm-group.ch/archimeo/cmmn#DiscretionaryTask> ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Discretionary_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Discretionary Task" ;
+.
+po:Dishwasher
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Dishwasher.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Dishwasher.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:ElectricAppliances ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Dishwasher ;
+  rdfs:label "Dishwasher" ;
+.
+po:Doctor
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Doctor.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Doctor.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Character ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Doctor ;
+  rdfs:label "Doctor" ;
+.
+po:Dot
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Dot" ;
+.
+po:Double
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Double" ;
+.
+po:DoubleBackSlash
+  rdf:type po:ArrowHead ;
+  rdfs:label "DoubleBackSlash" ;
+.
+po:DoubleDash
+  rdf:type po:ArrowStroke ;
+  rdfs:label "DoubleDash" ;
+.
+po:DoubleDoorFridge
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "DoubleDoorFridge.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_DoubleDoorFridge.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Fridge ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:DoubleDoorFridge ;
+  rdfs:label "Double Door Fridge" ;
+.
+po:DoubleDot
+  rdf:type po:ArrowStroke ;
+  rdfs:label "DoubleDot" ;
+.
+po:DoubleFeathers
+  rdf:type po:ArrowHead ;
+  rdfs:label "DoubleFeathers" ;
+.
+po:DoubleForwardSlash
+  rdf:type po:ArrowHead ;
+  rdfs:label "DoubleForwardSlash" ;
+.
+po:DoubleLine
+  rdf:type po:ArrowHead ;
+  rdfs:label "DoubleLine" ;
+.
+po:DoubleLineCircle
+  rdf:type po:ArrowHead ;
+  rdfs:label "DoubleLineCircle" ;
+.
+po:DoubleTriangle
+  rdf:type po:ArrowHead ;
+  rdfs:label "DoubleTriangle" ;
+.
+po:Down
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Down.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Down.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Arrow ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Down ;
+  rdfs:label "Down" ;
+.
+po:Dresser
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Dresser.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Dresser.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Dresser ;
+  rdfs:label "Dresser" ;
+.
+po:Drone
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Drone.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Drone.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:TransportationElement ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Drone ;
+  rdfs:label "Drone" ;
+.
+po:DynamicWidthArrow
+  rdf:type po:ArrowHead ;
+  rdfs:label "DynamicWidthArrow" ;
+.
+po:ElectricAppliances
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "ElectricAppliances.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_ElectricAppliances.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:ElectricAppliances ;
+  rdfs:label "Electric Appliances" ;
+.
+po:EmergencyRoomOU
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "OrganizationalUnitEmergencyRoom-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "OrganizationalUnitEmergencyRoom-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:OrganizationalUnit ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_OrganizationalUnit ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:EmergencyRoomOU ;
+  rdfs:label "Emergency Room OU" ;
+.
+po:EmpathyFeel
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 150 ;
+  po:paletteConstructHasModelImage "Feel.png" ;
+  po:paletteConstructHasPaletteThumbnail "Feel.png" ;
+  po:paletteConstructHasWidth 250 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasEmpathy ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Feel ;
+  rdfs:label "Feel" ;
+.
+po:EmpathyHear
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 150 ;
+  po:paletteConstructHasModelImage "Hear.png" ;
+  po:paletteConstructHasPaletteThumbnail "Hear.png" ;
+  po:paletteConstructHasWidth 250 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasEmpathy ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Hear ;
+  rdfs:label "Hear" ;
+.
+po:EmpathyMap
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 500 ;
+  po:paletteConstructHasModelImage "Empathy_map.jpg" ;
+  po:paletteConstructHasPaletteThumbnail "Empathy_map.jpg" ;
+  po:paletteConstructHasWidth 800 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasBackground ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:EmpathyMapping ;
+  rdfs:label "Empathy Map" ;
+.
+po:EmpathySaying
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 150 ;
+  po:paletteConstructHasModelImage "Saying.png" ;
+  po:paletteConstructHasPaletteThumbnail "Saying.png" ;
+  po:paletteConstructHasWidth 250 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasEmpathy ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Saying ;
+  rdfs:label "Saying" ;
+.
+po:EmpathySeeing
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 150 ;
+  po:paletteConstructHasModelImage "Seeing.png" ;
+  po:paletteConstructHasPaletteThumbnail "Seeing.png" ;
+  po:paletteConstructHasWidth 250 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasEmpathy ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Seeing ;
+  rdfs:label "Seeing" ;
+.
+po:EmpathyThink
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 150 ;
+  po:paletteConstructHasModelImage "Think.png" ;
+  po:paletteConstructHasPaletteThumbnail "Think.png" ;
+  po:paletteConstructHasWidth 250 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasEmpathy ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Think ;
+  rdfs:label "Think" ;
+.
+po:EndEvent
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "end_event.png" ;
+  po:paletteConstructHasPaletteThumbnail "end_event.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:NoneEvent ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Events4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:EndEvent ;
+  po:paletteElementBackgroundColor "#00AD5F" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Event.PNG" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "Circle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "End Event" ;
+.
+po:EquilibriumArrow
+  rdf:type po:ArrowHead ;
+  rdfs:label "EquilibriumArrow" ;
+.
+po:EventBasedGateway
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "EventBased_Gateway.png" ;
+  po:paletteConstructHasPaletteThumbnail "EventBased_Gateway.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Gateway ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Gateways4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Gateway ;
+  po:paletteElementBackgroundColor "Orange" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "EventBased_Gateway.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "Diamond" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Event-based Gateway" ;
+.
+po:ExclusiveGateway
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Exclusive_Gateway.png" ;
+  po:paletteConstructHasPaletteThumbnail "Exclusive_Gateway.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Gateway ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Gateways4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:ExclusiveGateway ;
+  po:paletteElementBackgroundColor "Orange" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Exclusive_Gateway.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "Diamond" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Exclusive Gatweay" ;
+.
+po:Executes
+  rdf:type po:PaletteConnector ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Thumbnail_Executes.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Executes.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesRelations ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Executes ;
+  rdfs:label "Executes" ;
+.
+po:ExtractorHood
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "ExtractorHood.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_ExtractorHood.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:ElectricAppliances ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:ExtractorHood ;
+  rdfs:label "Extractor Hood" ;
+.
+po:Factory
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Factory.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Factory.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Building ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Factory ;
+  rdfs:label "Factory" ;
+.
+po:FastForward
+  rdf:type po:ArrowHead ;
+  rdfs:label "FastForward" ;
+.
+po:Feather
+  rdf:type po:ArrowHead ;
+  rdfs:label "Feather" ;
+.
+po:FinalizeKoGu
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Finalize_KoGu.png" ;
+  po:paletteConstructHasPaletteThumbnail "Finalize_KoGu.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:UserTask ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:FinalizeKoGu ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Finalize KoGu" ;
+.
+po:Flipchart
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Flipchart.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Flipchart.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Flipchart ;
+  rdfs:label "Flipchart" ;
+.
+po:Fork
+  rdf:type po:ArrowHead ;
+  rdfs:label "Fork" ;
+.
+po:Forklift
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Forklift.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Forklift.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:TransportationElement ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Forklift ;
+  rdfs:label "Forklift" ;
+.
+po:ForwardSemiCircle
+  rdf:type po:ArrowHead ;
+  rdfs:label "ForwardSemiCircle" ;
+.
+po:ForwardSlash
+  rdf:type po:ArrowHead ;
+  rdfs:label "ForwardSlash" ;
+.
+po:Fridge
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Fridge.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Fridge.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Fridge ;
+  rdfs:label "Fridge" ;
+.
+po:Furniture
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Furniture.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Furniture.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Furniture ;
+  rdfs:label "Furniture" ;
+.
+po:Gain
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 100 ;
+  po:paletteConstructHasModelImage "Gain.png" ;
+  po:paletteConstructHasPaletteThumbnail "Gain.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasValueProposition ;
+  po:paletteConstructIsHiddenFromPalette "true"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Gain ;
+  questionnaire:hasOrderNumberForVisualization 1 ;
+  rdfs:comment "new" ;
+  rdfs:label "Gain" ;
+.
+po:Gateway
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Gateway.png" ;
+  po:paletteConstructHasPaletteThumbnail "Gateway.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Gateways4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Gateway ;
+  po:paletteElementBackgroundColor "Orange" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Simple_Gateway.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "Diamond" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Gatweay" ;
+.
+po:GeneratingCustomerBillingData
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight "335" ;
+  po:paletteConstructHasModelImage "Group4Process.bmp" ;
+  po:paletteConstructHasPaletteThumbnail "Group_GeneratingCustBillData.jpg" ;
+  po:paletteConstructHasParentPaletteConstruct po:Group_4BPaaS ;
+  po:paletteConstructHasWidth "755" ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Groups4BPaaSProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false" ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://ikm-group.ch/archimeo/bpaas#GeneratingCustomerBillingData> ;
+  po:paletteElementUsesImage "null" ;
+  rdfs:label "Generating Customer Billing Data" ;
+.
+po:Gong
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Gong.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Gong.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Gong ;
+  rdfs:label "Gong" ;
+.
+po:Greek
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Greek" ;
+.
+po:Group
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 575 ;
+  po:paletteConstructHasModelImage "Group_whole_process.png" ;
+  po:paletteConstructHasPaletteThumbnail "SmallGroup.png" ;
+  po:paletteConstructHasWidth 835 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Groups4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Group ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Group.jpg" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Group" ;
+.
+po:Group_4BPaaS
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 575 ;
+  po:paletteConstructHasModelImage "Group_whole_process.png" ;
+  po:paletteConstructHasPaletteThumbnail "SmallGroup.png" ;
+  po:paletteConstructHasWidth 835 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Groups4BPaaSProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Group ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Group.jpg" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Group" ;
+.
+po:Group_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 575 ;
+  po:paletteConstructHasModelImage "Group_whole_process.png" ;
+  po:paletteConstructHasPaletteThumbnail "SmallGroup.png" ;
+  po:paletteConstructHasWidth 835 ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Group ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Group.jpg" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Group to be used in case of specific groups for DSML4PTM" ;
+.
+po:HalfArrowBottom
+  rdf:type po:ArrowHead ;
+  rdfs:label "HalfArrowBottom" ;
+.
+po:HalfArrowTop
+  rdf:type po:ArrowHead ;
+  rdfs:label "HalfArrowTop" ;
+.
+po:HalfTriangleBottom
+  rdf:type po:ArrowHead ;
+  rdfs:label "HalfTriangleBottom" ;
+.
+po:HalfTriangleTop
+  rdf:type po:ArrowHead ;
+  rdfs:label "HalfTriangleTop" ;
+.
+po:HasRole_OrgM
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "HasRole-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_HasRole-OM.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4OrganizationalView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#RoleAssignment> ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "has Role" ;
+.
+po:HasSubDocument_DKM
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "hasSubDocument-dkm.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_hasSubDocument-dkm.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4DKModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/modelingEnvironment/dkmm#HasSubDocument> ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "has sub-document" ;
+.
+po:HealthInsuranceOU
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "OrganizationalUnitHealthInsurance-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "OrganizationalUnitHealthInsurance-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:OrganizationalUnit ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_OrganizationalUnit ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:HealthInsuranceOU ;
+  rdfs:label "Health Insurance " ;
+.
+po:Heater
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Heater.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Heater.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:ElectricAppliances ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Heater ;
+  rdfs:label "Heater" ;
+.
+po:Herringbone
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Herringbone" ;
+.
+po:HighCabinet
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "HighCabinet.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_HighCabinet.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Cabinets ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:HighCabinet ;
+  rdfs:label "High Cabinet" ;
+.
+po:HighCabinetForStorage
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "HighCabinetForStorage.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_HighCabinetForStorage.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:HighCabinet ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:HighCabinetForStorage ;
+  rdfs:label "High Cabinet for Storage" ;
+.
+po:HighCabinetWithOven
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "HighCabinetWithOven.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_HighCabinetWithOven.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:HighCabinet ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:HighCabinetWithOven ;
+  rdfs:label "High Cabinet with Oven" ;
+.
+po:House
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "House.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_House.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Building ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:House ;
+  rdfs:label "House" ;
+.
+po:ICFStandard
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "ICFstandard-dkm.png" ;
+  po:paletteConstructHasPaletteThumbnail "ICFstandard-dkm.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:DataDocument_4DSML4PTM ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Document4DSML4PTMDocumentView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:ICFStandard ;
+  rdfs:label "ICF International Standard" ;
+.
+po:ICFStandardHasModelThumbnail
+  rdf:type rdf:Property ;
+  rdf:type owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+  rdfs:range "gnICFStandardForCanvas.png" ;
+.
+po:ICFStandardHasPaletteThumbnail
+  rdf:type rdf:Property ;
+  rdfs:range xsd:string ;
+  rdfs:range "gnICFStandardForPalette.png" ;
+.
+po:ICFStandardhasModelThumbnail
+  rdf:type rdf:Property ;
+.
+po:InclusiveGateway
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "inclusive_gateway.png" ;
+  po:paletteConstructHasPaletteThumbnail "inclusive_gateway.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Gateway ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Gateways4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:InclusiveGateway ;
+  po:paletteElementBackgroundColor "Orange" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Parallel_Gateway.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "Diamond" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Inclusive Gateway" ;
+.
+po:InfrastructureService
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:ArchiMateView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "TechnologyService.png" ;
+  po:paletteConstructHasPaletteThumbnail "TechnologyService_Thumbnail.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_General ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:TechnologyService ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-right" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Infrastructure Service" ;
+.
+po:IntensiveCareUnitOU
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "OrganizationalUnitIntensiveCareUnit-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "OrganizationalUnitIntensiveCareUnit-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:OrganizationalUnit ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_OrganizationalUnit ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:IntensiveCareUnitOU ;
+  rdfs:label "Intensive Care Unit" ;
+.
+po:IntermediateEvent
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "intermediate_event.png" ;
+  po:paletteConstructHasPaletteThumbnail "intermediate_event.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:NoneEvent ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Events4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:IntermediateEvent ;
+  po:paletteElementBackgroundColor "#00AD5F" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Event.PNG" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "Circle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Intermediate Event" ;
+.
+po:IsManager_OrgM
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "IsManager-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_IsManager-OM.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4OrganizationalView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#ManagerAssignment> ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "is Manager" ;
+.
+po:IsSubordinated_OrgM
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "IsSubordinated-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_IsSubordinated-OM.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4OrganizationalView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#Subordination> ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "is Subordinated" ;
+.
+po:Kitchen
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Kitchen.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Kitchen.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Kitchen ;
+  rdfs:label "Kitchen" ;
+.
+po:Kite
+  rdf:type po:ArrowHead ;
+  rdfs:label "Kite" ;
+.
+po:KoGuDataObject
+  rdf:type po:PaletteConstruct ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:KoGuDataObject ;
+  rdfs:label "KoGu Data Object" ;
+.
+po:KoGuDataObject_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "KoGu.png" ;
+  po:paletteConstructHasPaletteThumbnail "KoGu.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:DataObject_4DSML4PTM ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Data4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:KoGuDataObject ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "KoGu.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "KoGu Data Object" ;
+.
+po:Lane
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 335 ;
+  po:paletteConstructHasModelImage "Lane_whole.png" ;
+  po:paletteConstructHasPaletteThumbnail "SmallLane.PNG" ;
+  po:paletteConstructHasWidth 1160 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Swimlanes4BPMN ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Lane ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Lane" ;
+.
+po:Lane_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 335 ;
+  po:paletteConstructHasModelImage "Lane_whole.png" ;
+  po:paletteConstructHasPaletteThumbnail "SmallLane.PNG" ;
+  po:paletteConstructHasWidth 1160 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Swimlanes4DSML ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Lane ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Lane" ;
+.
+po:Laptop
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Laptop.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Laptop.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Device ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Laptop ;
+  rdfs:label "Laptop" ;
+.
+po:LaptopSetting
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "LaptopSetting.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_LaptopSetting.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:LaptopSetting ;
+  rdfs:label "Laptop Setting" ;
+.
+po:Left
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Left.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Left.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Arrow ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Left ;
+  rdfs:label "Left" ;
+.
+po:Line
+  rdf:type po:ArrowHead ;
+  rdfs:label "Line" ;
+.
+po:LineCircle
+  rdf:type po:ArrowHead ;
+  rdfs:label "LineCircle" ;
+.
+po:LineFork
+  rdf:type po:ArrowHead ;
+  rdfs:label "LineFork" ;
+.
+po:LowerCabinet
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "LowerCabinet.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_LowerCabinet.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Cabinets ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:LowerCabinet ;
+  rdfs:label "Lower Cabinet" ;
+.
+po:LowerCabinetWithCookingRange
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "LowerCabinetWithCookingRange.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_LowerCabinetWithCookingRange.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:LowerCabinet ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:LowerCabinetWithCookingRange ;
+  rdfs:label "Lower Cabinet with Cooking Range" ;
+.
+po:LowerCabinetWithShelves
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "LowerCabinetWithShelves.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_LowerCabinetWithShelves.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:LowerCabinet ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:LowerCabinetWithShelves ;
+  rdfs:label "Lower Cabinet with Shelves" ;
+.
+po:LowerCabinetWithSinkAndWasteDisposal
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "LowerCabinetWithSinkAndWasteDisposal.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_LowerCabinetWithSinkAndWasteDisposal.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:LowerCabinet ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:LowerCabinetWithSinkAndWasteDisposal ;
+  rdfs:label "Lower Cabinet with Sink and Waste Disposal" ;
+.
+po:MakeDispositionOfCase
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_User_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:UserTask ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:MakeDispositionOfCase ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Make Disposition Of Case" ;
+.
+po:MallInside
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "MallInside.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_MallInside.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:MallInside ;
+  rdfs:label "Mall Inside" ;
+.
+po:Man
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Man.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Man.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Character ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Man ;
+  rdfs:label "Man" ;
+.
+po:ManagingCustomerRelationship
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight "115" ;
+  po:paletteConstructHasModelImage "Group_TransmittingBillData.jpg" ;
+  po:paletteConstructHasPaletteThumbnail "Group_ManagingCR.jpg" ;
+  po:paletteConstructHasWidth "155" ;
+  po:paletteConstructIsHiddenFromPalette "false" ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://ikm-group.ch/archimeo/bpaas#ManagingCustomerRelationship> ;
+  po:paletteElementUsesImage "null" ;
+  rdfs:label "Managing Customer Relationship" ;
+.
+po:ManualTask
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Manual_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Manual_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Task ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:ManualTask ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Manual_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Manual Task" ;
+.
+po:ManualTask_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Manual_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Manual_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Task_4DSML4PTM ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:ManualTask ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Manual_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Manual Task" ;
+.
+po:MeetingRoom
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "MeetingRoom.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_MeetingRoom.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:MeetingRoom ;
+  rdfs:label "Meeting Room" ;
+.
+po:MessageEndEvent
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "message_end_event.png" ;
+  po:paletteConstructHasPaletteThumbnail "message_end_event.png.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:EndEvent ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Events4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:MessageEndEvent ;
+  po:paletteElementBackgroundColor "#00AD5F" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "message_end_event.PNG" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "Circle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Message End Event" ;
+.
+po:MessageFlow_4DSML4PTM
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConnectorConfiguresArrowStroke po:Dash ;
+  po:paletteConnectorConfiguresFromArrowHead po:Circle ;
+  po:paletteConnectorConfiguresToArrowHead po:Triangle ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "message_flow.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_message_flow.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:MessageFlow ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Message Flow" ;
+.
+po:MessageFlow_BPMN
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConnectorConfiguresArrowStroke po:Dash ;
+  po:paletteConnectorConfiguresFromArrowHead po:Circle ;
+  po:paletteConnectorConfiguresToArrowHead po:Triangle ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "message_flow.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_message_flow.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:MessageFlow ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Message Flow" ;
+.
+po:MessageIntermediateEvent
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "intermediate_message_event.png" ;
+  po:paletteConstructHasPaletteThumbnail "intermediate_message_event.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:IntermediateEvent ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Events4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:MessageIntermediateEvent ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Timer_Intermediate.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Message Intermediate Event" ;
+.
+po:MessageStartEvent
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "starting-message-event.png" ;
+  po:paletteConstructHasPaletteThumbnail "starting-message-event.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:StartEvent ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Events4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:MessageStartEvent ;
+  po:paletteElementBackgroundColor "#00AD5F" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Event.PNG" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "Circle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Message Start Event" ;
+.
+po:MobilePhone
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "MobilePhone.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_MobilePhone.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Device ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:MobilePhone ;
+  rdfs:label "Mobile Phone" ;
+.
+po:Monitor
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Monitor.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Monitor.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Device ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Monitor ;
+  rdfs:label "Monitor" ;
+.
+po:Node
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Node.png" ;
+  po:paletteConstructHasPaletteThumbnail "Node.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_TechnologyLayer ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:Node ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-right" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Node" ;
+.
+po:NonIntensiveCareUnitOU
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "OrganizationalUnitNonIntensiveCareUnit-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "OrganizationalUnitNonIntensiveCareUnit-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:OrganizationalUnit ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_OrganizationalUnit ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:NonIntensiveCareUnitOU ;
+  rdfs:label "Non Intensive Care Unit OM" ;
+.
+po:NoneEvent
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "none_event.png" ;
+  po:paletteConstructHasPaletteThumbnail "none_event.png" ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Events4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Event ;
+  po:paletteElementBackgroundColor "#00AD5F" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "none_event.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "Circle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "None Event" ;
+.
+po:NormalArrow
+  rdf:type po:ArrowHead ;
+  rdfs:label "NormalArrow" ;
+.
+po:NurseRole
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "RoleNurse-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "RoleNurse-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Role ;
+  po:paletteConstructHasWidth 50 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Role ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:NurseRole ;
+  rdfs:label "Nurse Role" ;
+.
+po:Office
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Office.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Office.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Office ;
+  rdfs:label "Office" ;
+.
+po:OfficeBuilding
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "OfficeBuilding.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_OfficeBuilding.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Building ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:OfficeBuilding ;
+  rdfs:label "Office Building" ;
+.
+po:OldMan
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "OldMan.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_OldMan.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Character ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:OldMan ;
+  rdfs:label "Old Man" ;
+.
+po:OldWoman
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "OldWoman.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_OldWoman.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Character ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:OldWoman ;
+  rdfs:label "Old Woman" ;
+.
+po:OpenRightTriangleBottom
+  rdf:type po:ArrowHead ;
+  rdfs:label "OpenRightTriangleBottom" ;
+.
+po:OpenRightTriangleTop
+  rdf:type po:ArrowHead ;
+  rdfs:label "OpenRightTriangleTop" ;
+.
+po:OpenTriangle
+  rdf:type po:ArrowHead ;
+  rdfs:label "OpenTriangle" ;
+.
+po:OpenTriangleBottom
+  rdf:type po:ArrowHead ;
+  rdfs:label "OpenTriangleBottom" ;
+.
+po:OpenTriangleLine
+  rdf:type po:ArrowHead ;
+  rdfs:label "OpenTriangleLine" ;
+.
+po:OpenTriangleTop
+  rdf:type po:ArrowHead ;
+  rdfs:label "OpenTriangleTop" ;
+.
+po:OpposingDirectionDoubleArrow
+  rdf:type po:ArrowHead ;
+  rdfs:label "OpposingDirectionDoubleArrow" ;
+.
+po:OrganizationalUnit
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "OrganizationalUnit-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "OrganizationalUnit-OM.png" ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_OrganizationalUnit ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#OrganizationalUnit> ;
+  rdfs:label "Organizational Unit" ;
+.
+po:PackageBig
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "PackageBig.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_PackageBig.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Accessory ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:PackageBig ;
+  rdfs:label "Package Big" ;
+.
+po:PackageMedium
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "PackageMedium.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_PackageMedium.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Accessory ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:PackageMedium ;
+  rdfs:label "Package Medium" ;
+.
+po:PackageSmall
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "PackageSmall.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_PackageSmall.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Accessory ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:PackageSmall ;
+  rdfs:label "Package Small" ;
+.
+po:PaletteCategory
+  rdf:type owl:Class ;
+  lo:excludeFromGraphicalSelection "true"^^xsd:boolean ;
+  rdfs:subClassOf owl:Thing ;
+.
+po:PaletteCategory_1
+  rdf:type po:PaletteCategory ;
+  rdfs:label "Palette category 1" ;
+.
+po:PaletteConnector
+  rdf:type owl:Class ;
+  lo:excludeFromGraphicalSelection "true"^^xsd:boolean ;
+  rdfs:label "Palette Connector" ;
+  rdfs:subClassOf po:PaletteConstruct ;
+.
+po:PaletteConstruct
+  rdf:type owl:Class ;
+  lo:excludeFromGraphicalSelection "true"^^xsd:boolean ;
+  rdfs:subClassOf owl:Thing ;
+.
+po:PaletteElement
+  rdf:type owl:Class ;
+  lo:excludeFromGraphicalSelection "false"^^xsd:boolean ;
+  rdfs:label "Palette Element" ;
+  rdfs:subClassOf po:PaletteConstruct ;
+.
+po:ParallelGateway
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "parallel_gateway.png" ;
+  po:paletteConstructHasPaletteThumbnail "parallel_gateway.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Gateway ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Gateways4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:ParallelGateway ;
+  po:paletteElementBackgroundColor "Orange" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "parallel_gateway.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "Diamond" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Parallel Gateway" ;
+.
+po:PartialDoubleTriangle
+  rdf:type po:ArrowHead ;
+  rdfs:label "PartialDoubleTriangle" ;
+.
+po:PatientDispositionPool
+  rdf:type dsml4ptm:AcuteHospitalPool ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "RolePatientDisposition.png" ;
+  po:paletteConstructHasPaletteThumbnail "RolePatientDisposition.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Pool ;
+  po:paletteConstructHasWidth 50 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Swimlanes4DSML ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:PatientDispositionRole ;
+  rdfs:label "Patient Disposition Role" ;
+.
+po:PatientDispositionRole
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "RolePatientDisposition-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "RolePatientDisposition-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Role ;
+  po:paletteConstructHasWidth 50 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Role ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:PatientDispositionRole ;
+  rdfs:label "Patient Disposition Role" ;
+.
+po:PatientRole
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "RolePatient-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "RolePatient-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Role ;
+  po:paletteConstructHasWidth 50 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Role ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:PatientRole ;
+  rdfs:label "Patient Role" ;
+.
+po:PentagonArrow
+  rdf:type po:ArrowHead ;
+  rdfs:label "PentagonArrow" ;
+.
+po:Performer
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Performer-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "Performer-OM.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Performer ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#Performer> ;
+  rdfs:label "Performer" ;
+.
+po:PlusCircle
+  rdf:type po:ArrowHead ;
+  rdfs:label "PlusCircle" ;
+.
+po:Pool
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 465 ;
+  po:paletteConstructHasModelImage "Pool_whole.png" ;
+  po:paletteConstructHasPaletteThumbnail "SmallPool.PNG" ;
+  po:paletteConstructHasWidth 1165 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Swimlanes4BPMN ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Pool ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Pool" ;
+.
+po:Pool_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 465 ;
+  po:paletteConstructHasModelImage "Pool_whole.png" ;
+  po:paletteConstructHasPaletteThumbnail "SmallPool.PNG" ;
+  po:paletteConstructHasWidth 1165 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Swimlanes4DSML ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Pool ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Pool" ;
+.
+po:PrepareKoGu
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Prepare_CostReimbursement.png" ;
+  po:paletteConstructHasPaletteThumbnail "Prepare_CostReimbursement.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:UserTask_4DSML4PTM ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:PrepareKoGu ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Prepare KoGu" ;
+.
+po:PrepareMedicalRecordAdmission
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_User_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:UserTask ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:PrepareMedicalAdmission ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label """Prepare Medical Record Admission
+ """ ;
+.
+po:PrepareRehabAdmission
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_User_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:UserTask ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:PrepareRehabAdmission ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label """Prepare Rehab Admission
+ """ ;
+.
+po:Realisation
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConnectorConfiguresArrowStroke po:Dot ;
+  po:paletteConnectorConfiguresToArrowHead po:Triangle ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_Connectors ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:Realisation ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Realisation" ;
+.
+po:ReceiveMessageTask
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Receive_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Receive_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Task ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:ReceiveTask ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Receive_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Receive Message Task" ;
+.
+po:ReceiveMessageTask_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Receive_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Receive_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Task ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "true"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:ReceiveTask ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Receive_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Receive Message Task" ;
+.
+po:RehabilitationClinicOU
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "OrganizationalUnitRehabilitationClinic-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "OrganizationalUnitRehabilitationClinic-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:OrganizationalUnit ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_OrganizationalUnit ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:RehabilitationClinicOU ;
+  rdfs:label "Rehabilitation Clinic " ;
+.
+po:RehabilitationClinicPool
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "Rehabilitation Clinic.png" ;
+  po:paletteConstructHasPaletteThumbnail "Rehabilitation Clinic.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Pool_4DSML4PTM ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Swimlanes4DSML ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:RehabilitationClinicPool ;
+  rdfs:label "Rehabilitation Clinic " ;
+.
+po:RehabilitationPhysicianRole
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "RoleRehabilitationPhysician-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "RoleRehabilitationPhysician-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Role ;
+  po:paletteConstructHasWidth 50 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Role ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:RehabilitationPhysicianRole ;
+  rdfs:label "Rehabilitation Physician Role" ;
+.
+po:ReleaseTransferCase
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_User_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:UserTask ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:ReleaseTransferCase ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label """Release Transfer Case
+ """ ;
+.
+po:RobotArm
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "RobotArm.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_RobotArm.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Accessory ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:RobotArm ;
+  rdfs:label "Robot Arm" ;
+.
+po:Role
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "Role-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "Role-OM.png" ;
+  po:paletteConstructHasWidth 50 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Role ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#Role> ;
+  rdfs:label "Role" ;
+.
+po:RoundedTriangle
+  rdf:type po:ArrowHead ;
+  rdfs:label "RoundedTriangle" ;
+.
+po:SAPScenesElements
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:SAPSceneModelingView ;
+  rdfs:label "SAP Scenes Elements" ;
+.
+po:SAPScenesRelations
+  rdf:type po:PaletteCategory ;
+  po:paletteCategoryIsShownInModelingView lo:SAPSceneModelingView ;
+  rdfs:label "SAP Scenes Relations" ;
+.
+po:Sawtooth
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Sawtooth" ;
+.
+po:ScriptTask
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Script_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Script_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Task ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:ScriptTask ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Send_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Script Task" ;
+.
+po:Seed
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Seed" ;
+.
+po:SeeingTest
+  rdf:type sapscenes:Seeing ;
+  rdfs:comment "Test 2" ;
+  rdfs:label "I am the customer" ;
+.
+po:SemiCircle
+  rdf:type po:ArrowStroke ;
+  rdfs:label "SemiCircle" ;
+.
+po:SendMessageTask
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Send_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Send_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Task ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:SendTask ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Send_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Send Message Task" ;
+.
+po:SendMessageTask_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Send_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Send_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Task_4DSML4PTM ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:SendTask ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Send_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Send Message Task" ;
+.
+po:SequenceFlow_4DSML4PTM
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConnectorConfiguresArrowStroke po:Single ;
+  po:paletteConnectorConfiguresToArrowHead po:Triangle ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "SequenceFlow-bpmn.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_SequenceFlow-bpmn.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:SequenceFlow ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Sequence Flow" ;
+.
+po:SequenceFlow_BPMN
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConnectorConfiguresArrowStroke po:Single ;
+  po:paletteConnectorConfiguresToArrowHead po:Triangle ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "SequenceFlow-bpmn.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Sequence.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:SequenceFlow ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Sequence Flow" ;
+.
+po:ServiceTask
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Service_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Service_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Task ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:ServiceTask ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Service_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Service Task" ;
+.
+po:ServiceTask_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Service_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Service_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Task_4DSML4PTM ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:ServiceTask ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Service_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Service Message Task" ;
+.
+po:Serving
+  rdf:type po:PaletteConnector ;
+  po:paletteConnectorArrowBaseUsesImage "true"^^xsd:boolean ;
+  po:paletteConnectorConfiguresArrowStroke po:Single ;
+  po:paletteConnectorConfiguresToArrowHead po:OpenTriangle ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_Connectors ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:Serving ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "Serving" ;
+.
+po:ShippingDock
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "ShippingDock.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_ShippingDock.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:ShippingDock ;
+  rdfs:label "Shipping Dock" ;
+.
+po:ShoppingCart
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "ShoppingCart.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_ShoppingCart.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:ShoppingCart ;
+  rdfs:label "Shopping Cart" ;
+.
+po:SidewaysV
+  rdf:type po:ArrowHead ;
+  rdfs:label "SidewaysV" ;
+.
+po:Sign
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Sign.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Sign.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Sign ;
+  rdfs:label "Sign" ;
+.
+po:SimpleArrow
+  rdf:type po:ArrowHead ;
+  rdfs:label "SimpleArrow" ;
+.
+po:Single
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Single" ;
+.
+po:SingleDoorFridge
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "SingleDoorFridge.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_SingleDoorFridge.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Fridge ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:SingleDoorFridge ;
+  rdfs:label "Single Door Fridge" ;
+.
+po:SiteOfCareOU
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "OrganizationalUnitSiteOfCare-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "OrganizationalUnitSiteOfCare-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:OrganizationalUnit ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_OrganizationalUnit ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:SiteOfCareOU ;
+  rdfs:label "Site of Care OU" ;
+.
+po:Slash
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Slash" ;
+.
+po:SmallSign
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "SmallSign.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_SmallSign.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Sign ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:SmallSign ;
+  rdfs:label "Small Sign" ;
+.
+po:SodaMaschine
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "SodaMaschine.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_SodaMaschine.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:SodaMaschine ;
+  rdfs:label "Soda Maschine" ;
+.
+po:SpeechBubble
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "SpeechBubble.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_SpeechBubble.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:SpeechBubble ;
+  rdfs:label "Speech Bubble" ;
+.
+po:Square
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Square" ;
+.
+po:Standard
+  rdf:type po:ArrowHead ;
+  rdfs:label "Standard" ;
+.
+po:StartEvent
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "start_event.png" ;
+  po:paletteConstructHasPaletteThumbnail "start_event.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:NoneEvent ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Events4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:StartEvent ;
+  po:paletteElementBackgroundColor "#00AD5F" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Event.PNG" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "Circle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Start Event" ;
+.
+po:Stool
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Stool.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Stool.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Stool ;
+  rdfs:label "Stool" ;
+.
+po:StorageRoom
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "StorageRoom.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_StorageRoom.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:StorageRoom ;
+  rdfs:label "Storage Room" ;
+.
+po:Store
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Store.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Store.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Building ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Store ;
+  rdfs:label "Store" ;
+.
+po:StoreAisle
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "StoreAisle.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_StoreAisle.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:StoreAisle ;
+  rdfs:label "Store Aisle" ;
+.
+po:StretchedChevron
+  rdf:type po:ArrowHead ;
+  rdfs:label "StretchedChevron" ;
+.
+po:StretchedDiamond
+  rdf:type po:ArrowHead ;
+  rdfs:label "StretchedDiamond" ;
+.
+po:Student
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Student.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Student.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Character ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Student ;
+  rdfs:label "Student" ;
+.
+po:SubReceiveActivity
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasParentPaletteConstruct "http://fhnw.ch/modelingEnvironment/LanguageOntology#ReceiveTask" ;
+  po:paletteConstructIsGroupedInPaletteCategory "lo:Category_Activities" ;
+  po:paletteConstructIsHiddenFromPalette "false" ;
+  po:paletteElementUsesImage "null" ;
+  rdfs:label "Subtask Receive Activity" ;
+.
+po:Subprocess
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Subprocess.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Subprocess.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4BPMNProcessModelingView ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:SubProcess ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Subprocess.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Subprocess" ;
+.
+po:Subway
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Subway.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Subway.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Subway ;
+  rdfs:label "Subway" ;
+.
+po:SystemSoftware
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "SystemSoftware.png" ;
+  po:paletteConstructHasPaletteThumbnail "SystemSoftware_Thumbnail.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_TechnologyLayer ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:SystemSoftware ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-right" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "System Software" ;
+.
+po:TEST
+  rdf:type po:PaletteCategory ;
+  rdfs:label "TEST" ;
+.
+po:Table
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Table.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Table.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Table ;
+  rdfs:label "Table" ;
+.
+po:Tablet
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Tablet.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Tablet.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Device ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Tablet ;
+  rdfs:label "Tablet" ;
+.
+po:TailedNormalArrow
+  rdf:type po:ArrowHead ;
+  rdfs:label "TailedNormalArrow" ;
+.
+po:Task
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Task.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Task ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Task" ;
+.
+po:Task_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Task.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:Task ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Task" ;
+.
+po:Team
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Team.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Team.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Team ;
+  rdfs:label "Team" ;
+.
+po:TechnologyService
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "TechnologyService.png" ;
+  po:paletteConstructHasPaletteThumbnail "TechnologyService_Thumbnail.png" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ArchiMate_TechnologyLayer ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct archi:TechnologyService ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-right" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Technology Service" ;
+.
+po:TerminateEvent
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "terminate_event.png" ;
+  po:paletteConstructHasPaletteThumbnail "terminate_event.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:EndEvent ;
+  po:paletteConstructHasWidth 70 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Events4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:TerminateEndEvent ;
+  po:paletteElementBackgroundColor "#00AD5F" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Event.PNG" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "Circle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Terminate Event" ;
+.
+po:TestActivity
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasParentPaletteConstruct "lo:ManualTask" ;
+  po:paletteConstructIsGroupedInPaletteCategory "lo:Category_Activities" ;
+  po:paletteConstructIsHiddenFromPalette "false" ;
+  po:paletteElementUsesImage "null" ;
+  rdfs:label "Test Activity" ;
+.
+po:TestSub
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasParentPaletteConstruct "http://fhnw.ch/modelingEnvironment/LanguageOntology#Subprocess" ;
+  po:paletteConstructIsGroupedInPaletteCategory "http://fhnw.ch/modelingEnvironment/LanguageOntology#Category_Activities" ;
+  po:paletteConstructIsHiddenFromPalette "false" ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct "bpmn:TestSub" ;
+  po:paletteElementUsesImage "null" ;
+  rdfs:label "Test Sub" ;
+.
+po:Test_1
+  rdf:type sapscenes:Feel ;
+.
+po:ThinkingBubble
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "ThinkingBubble.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_ThinkingBubble.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:SpeechBubble ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:ThinkingBubble ;
+  rdfs:label "Thinking Bubble" ;
+.
+po:TimerIntermediateEvent
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "intermediate_timer_event.png" ;
+  po:paletteConstructHasPaletteThumbnail "intermediate_timer_event.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:IntermediateEvent ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Events4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:TimerIntermediateEvent ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Timer_Intermediate.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Timer Intermediate Event" ;
+.
+po:TimerStartEvent
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "timer_start_event.png" ;
+  po:paletteConstructHasPaletteThumbnail "timer_start_event.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:StartEvent ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Events4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:TimerStartEvent ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Timer_Start.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "false"^^xsd:boolean ;
+  rdfs:label "Timer Start Event" ;
+.
+po:TowerBuilding
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "TowerBuilding.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_TowerBuilding.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Building ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:TowerBuilding ;
+  rdfs:label "Tower Building" ;
+.
+po:Train
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Train.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Train.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:TransportationElement ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Train ;
+  rdfs:label "Train" ;
+.
+po:TrainStation
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "TrainStation.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_TrainStation.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Building ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:TrainStation ;
+  rdfs:label "Train Station" ;
+.
+po:TransferlManagerRole
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 50 ;
+  po:paletteConstructHasModelImage "RoleTransferalManager-OM.png" ;
+  po:paletteConstructHasPaletteThumbnail "RoleTransferalManager-OM.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Role ;
+  po:paletteConstructHasWidth 50 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Role ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dsml4ptm:TransferalManagerRole ;
+  rdfs:label "Transferl Manager Role" ;
+.
+po:TransmittingBillingData
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight "115" ;
+  po:paletteConstructHasModelImage "GroupOfAvtivities.png" ;
+  po:paletteConstructHasPaletteThumbnail "Group_TransmittingBillData.jpg" ;
+  po:paletteConstructHasWidth "155" ;
+  po:paletteConstructIsHiddenFromPalette "false" ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://ikm-group.ch/archimeo/bpaas#TransmittingBillingData> ;
+  po:paletteElementUsesImage "true" ;
+  rdfs:label "Transmitting Billing Data" ;
+.
+po:TransportationElement
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "TransportationElement.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_TransportationElement.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:TransportationElement ;
+  rdfs:label "Transportation Element" ;
+.
+po:Triangle
+  rdf:type po:ArrowHead ;
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Triangle" ;
+.
+po:TriangleLine
+  rdf:type po:ArrowHead ;
+  rdfs:label "TriangleLine" ;
+.
+po:Triple
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Triple" ;
+.
+po:TripleBackSlash
+  rdf:type po:ArrowHead ;
+  rdfs:label "TripleBackSlash" ;
+.
+po:TripleFeathers
+  rdf:type po:ArrowHead ;
+  rdfs:label "TripleFeathers" ;
+.
+po:TripleForwardSlash
+  rdf:type po:ArrowHead ;
+  rdfs:label "TripleForwardSlash" ;
+.
+po:TripleLine
+  rdf:type po:ArrowHead ;
+  rdfs:label "TripleLine" ;
+.
+po:TripleLineCircle
+  rdf:type po:ArrowHead ;
+  rdfs:label "TripleLineCircle" ;
+.
+po:Trolley
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Trolley.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Trolley.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:TransportationElement ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Trolley ;
+  rdfs:label "Trolley" ;
+.
+po:Truck
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Truck.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Truck.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:TransportationElement ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Truck ;
+  rdfs:label "Truck" ;
+.
+po:TruckDock
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "TruckDock.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_TruckDock.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:TruckDock ;
+  rdfs:label "Truck Dock" ;
+.
+po:TruckDriver
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "TruckDriver.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_TruckDriver.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Character ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:TruckDriver ;
+  rdfs:label "Truck Driver" ;
+.
+po:Up
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Up.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Up.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Arrow ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Up ;
+  rdfs:label "Up" ;
+.
+po:UserTask
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "User_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_User_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Task ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4BPMNProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "true"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:UserTask ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "User Task" ;
+.
+po:UserTask_4DSML4PTM
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "User_Task.png" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_User_Task.png" ;
+  po:paletteConstructHasParentPaletteConstruct po:Task_4DSML4PTM ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Category_Activities4DSML4PTMProcessModelingView ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:UserTask ;
+  po:paletteElementBackgroundColor "#c9dcf5" ;
+  po:paletteElementIconPosition "top-left" ;
+  po:paletteElementIconURL "Thumbnail_Task.png" ;
+  po:paletteElementLabelPosition "inside" ;
+  po:paletteElementShape "roundrectangle" ;
+  po:paletteElementUsesImage "true"^^xsd:boolean ;
+  rdfs:label "User Task" ;
+.
+po:ValueGain
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 150 ;
+  po:paletteConstructHasModelImage "Gain.png" ;
+  po:paletteConstructHasPaletteThumbnail "Gain.png" ;
+  po:paletteConstructHasWidth 250 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasValueProposition ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Gain ;
+  rdfs:label "Gain" ;
+.
+po:ValueGainCreator
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 150 ;
+  po:paletteConstructHasModelImage "GainCreator.png" ;
+  po:paletteConstructHasPaletteThumbnail "GainCreator.png" ;
+  po:paletteConstructHasWidth 250 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasValueProposition ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:GainCreator ;
+  rdfs:label "Gain Creator" ;
+.
+po:ValuePain
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 150 ;
+  po:paletteConstructHasModelImage "Pain.png" ;
+  po:paletteConstructHasPaletteThumbnail "Pain.png" ;
+  po:paletteConstructHasWidth 250 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasValueProposition ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Pain ;
+  rdfs:label "Pain" ;
+.
+po:ValuePainReliever
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 150 ;
+  po:paletteConstructHasModelImage "PainReliever.png" ;
+  po:paletteConstructHasPaletteThumbnail "PainReliever.png" ;
+  po:paletteConstructHasWidth 250 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasValueProposition ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:PainReliever ;
+  rdfs:label "Pain Reliever" ;
+.
+po:ValuePropositionCanvas
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 440 ;
+  po:paletteConstructHasModelImage "Value_Proposition.png" ;
+  po:paletteConstructHasPaletteThumbnail "Value_Proposition.png" ;
+  po:paletteConstructHasWidth 900 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasBackground ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:ValuePropositionMapping ;
+  rdfs:label "Value Proposition Canvas" ;
+.
+po:ValueServices
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 150 ;
+  po:paletteConstructHasModelImage "Services.png" ;
+  po:paletteConstructHasPaletteThumbnail "Services.png" ;
+  po:paletteConstructHasWidth 250 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasValueProposition ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Services ;
+  rdfs:label "Services" ;
+.
+po:ValueToDo
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight 150 ;
+  po:paletteConstructHasModelImage "ToDo.png" ;
+  po:paletteConstructHasPaletteThumbnail "ToDo.png" ;
+  po:paletteConstructHasWidth 250 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CanvasValueProposition ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:ToDo ;
+  rdfs:label "To Do" ;
+.
+po:WallCabinet
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "WallCabinet.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_WallCabinet.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Cabinets ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:WallCabinet ;
+  rdfs:label "Wall Cabinet" ;
+.
+po:WallCabinetWithGlass
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "WallCabinetWithGlass.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_WallCabinetWithGlass.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:WallCabinet ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:WallCabinetWithGlass ;
+  rdfs:label "Wall Cabinet with Glass" ;
+.
+po:WallReck
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "WallReck.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_WallReck.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:WallReck ;
+  rdfs:label "Wall Reck" ;
+.
+po:Warehouse
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Warehouse.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Warehouse.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Building ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Warehouse ;
+  rdfs:label "Warehouse" ;
+.
+po:White_board
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "White_board.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_White_board.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Background ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:White_board ;
+  rdfs:label "White board" ;
+.
+po:Whiteboard
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Whiteboard.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Whiteboard.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Furniture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Whiteboard ;
+  rdfs:label "Whiteboard" ;
+.
+po:Wholeprocess_sendinvoice
+  rdf:type po:PaletteElement ;
+  po:paletteConstructHasHeight "565" ;
+  po:paletteConstructHasModelImage "Group_whole_process.png" ;
+  po:paletteConstructHasPaletteThumbnail "Group.jpg" ;
+  po:paletteConstructHasParentPaletteConstruct po:Group_4BPaaS ;
+  po:paletteConstructHasWidth "1120" ;
+  po:paletteConstructIsHiddenFromPalette "false" ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://ikm-group.ch/archimeo/bpaas#Wholeprocess_sendinvoice> ;
+  po:paletteElementUsesImage "true" ;
+  rdfs:label "Whole process_send invoice" ;
+.
+po:Window
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Window.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Window.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Architecture ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Window ;
+  rdfs:label "Window" ;
+.
+po:Woman
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Woman.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Woman.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Character ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Woman ;
+  rdfs:label "Woman" ;
+.
+po:Worker
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:SAPSceneModellingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Worker.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Worker.PNG" ;
+  po:paletteConstructHasParentPaletteConstruct po:Character ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Worker ;
+  rdfs:label "Worker" ;
+.
+po:X
+  rdf:type po:ArrowHead ;
+  rdfs:label "X" ;
+.
+po:Zipper
+  rdf:type po:ArrowStroke ;
+  rdfs:label "Zipper" ;
+.
+po:empathyElementLeadsToValueProposition
+  rdf:type rdf:Property ;
+  rdfs:domain sapscenes:Feel ;
+  rdfs:domain sapscenes:Hear ;
+  rdfs:domain sapscenes:Saying ;
+  rdfs:domain sapscenes:Seeing ;
+  rdfs:domain sapscenes:Think ;
+  rdfs:range sapscenes:Gain ;
+  rdfs:range sapscenes:Pain ;
+  rdfs:range sapscenes:ToDo ;
+.
+po:graphicalElementClassType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Class Type" ;
+  rdfs:range xsd:string ;
+.
+po:graphicalElementX
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The X coordinate of an element instantiated in the Canvas" ;
+  rdfs:label "X coordinate" ;
+  rdfs:range xsd:string ;
+.
+po:graphicalElementY
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "the Y coordinate of an element instantiated in the Canvas" ;
+  rdfs:label "Y coordinate" ;
+  rdfs:range xsd:string ;
+.
+po:hasAge
+  rdf:type rdf:Property ;
+  rdfs:domain <http://fhnw.ch/SAPScenes#Character> ;
+  rdfs:domain sapscenes:EmpathyMapping ;
+  rdfs:range xsd:integer ;
+.
+po:hasNote
+  rdf:type po:PaletteConnector ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Thumbnail_hasNote.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_hasNote.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesRelations ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:hasNote ;
+  rdfs:label "hasNote" ;
+.
+po:hasParentDataDocument
+  rdf:type rdf:Property ;
+  rdfs:range po:DataDocument ;
+.
+po:hasRating
+  rdf:type rdf:Property ;
+  rdfs:domain sapscenes:Feel ;
+  rdfs:domain sapscenes:Hear ;
+  rdfs:domain sapscenes:Saying ;
+  rdfs:domain sapscenes:Seeing ;
+  rdfs:domain sapscenes:Think ;
+  rdfs:range xsd:string ;
+.
+po:hasRelation
+  rdf:type po:PaletteConnector ;
+  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Thumbnail_hasRelation.PNG" ;
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_hasRelation.PNG" ;
+  po:paletteConstructHasWidth 100 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesRelations ;
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:hasRelation ;
+  rdfs:label "hasRelation" ;
+.
+po:isRelatedToICFStandard
+  rdf:type rdf:Property ;
+  rdfs:range dsml4ptm:ICFStandard ;
+.
+po:languageElementIsRelatedToDomainElement
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Domain Ontology Class" ;
+  rdfs:range owl:Thing ;
+.
+po:paletteCategoryIsShownInModelingView
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain po:PaletteCategory ;
+  rdfs:label "A category in the palette is shown in a modeling view" ;
+  rdfs:range lo:ModelingView ;
+.
+po:paletteCategoryOrderNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain po:PaletteCategory ;
+  rdfs:label "palette category order number" ;
+  rdfs:range xsd:integer ;
+.
+po:paletteConnectorArrowBaseBorderColor
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Border Color of Arrow Base" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConnectorArrowBaseBorderThickness
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Thickness of Arrow Base Border" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConnectorArrowBaseColor
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Color of Arrow Base" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConnectorArrowBaseShape
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Shape of Arrow Base" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConnectorArrowBaseURLImage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "URL of Arrow Base Image" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConnectorArrowBaseUsesImage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Use an Image for the Base Arrow" ;
+  rdfs:range xsd:boolean ;
+.
+po:paletteConnectorArrowHeadBorderColor
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Border Color of Arrow Head" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConnectorArrowHeadBorderThickness
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Thickness of Arrow Head Border" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConnectorArrowHeadColor
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Color of Arrow Head" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConnectorArrowHeadShape
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Shape of Arrow Head" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConnectorArrowHeadURLImage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "URL of Arrow Head Image" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConnectorArrowHeadUsesImage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Use an Image for the Head Arrow" ;
+  rdfs:range xsd:boolean ;
+.
+po:paletteConnectorConfiguresArrowStroke
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain po:PaletteConnector ;
+  rdfs:range po:ArrowStroke ;
+.
+po:paletteConnectorConfiguresFromArrowHead
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain po:PaletteConnector ;
+  rdfs:range po:ArrowHead ;
+.
+po:paletteConnectorConfiguresToArrowHead
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain po:PaletteConnector ;
+  rdfs:range po:ArrowHead ;
+.
+po:paletteConnectorLineColor
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Connector Line Color" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConnectorLineThickness
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Palette Line Thickness" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConnectorLineType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Connector Line Type" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConstructHasHeight
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain po:PaletteConstruct ;
+  rdfs:label "Height" ;
+  rdfs:range xsd:integer ;
+.
+po:paletteConstructHasModelImage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain po:PaletteConstruct ;
+  rdfs:label "Image for the Model" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConstructHasPaletteThumbnail
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain po:PaletteConstruct ;
+  rdfs:label "Thumbnail for palette" ;
+  rdfs:range xsd:string ;
+.
+po:paletteConstructHasParentPaletteConstruct
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain po:PaletteConstruct ;
+  rdfs:label "has Parent Palette Construct" ;
+  rdfs:range po:PaletteConstruct ;
+.
+po:paletteConstructHasWidth
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain po:PaletteConstruct ;
+  rdfs:label "Width" ;
+  rdfs:range xsd:integer ;
+.
+po:paletteConstructIsGroupedInPaletteCategory
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain po:PaletteConstruct ;
+  rdfs:label "Palette Construct Is Grouped In Palette Category" ;
+  rdfs:range po:PaletteCategory ;
+.
+po:paletteConstructIsHiddenFromPalette
+  rdf:type owl:DatatypeProperty ;
+  po:value "Prova" ;
+  rdfs:domain po:PaletteCategory ;
+  rdfs:domain po:PaletteConstruct ;
+  rdfs:label "Hide from Palette" ;
+  rdfs:range xsd:boolean ;
+.
+po:paletteConstructIsRelatedToModelingLanguageConstruct
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain po:PaletteConstruct ;
+  rdfs:label "palette construct is related to language construct" ;
+  rdfs:range lo:ModelingLanguageConstruct ;
+.
+po:paletteElementBackgroundColor
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Background Color" ;
+  rdfs:range xsd:string ;
+.
+po:paletteElementIconPosition
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Icon Position" ;
+  rdfs:range xsd:string ;
+.
+po:paletteElementIconURL
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Icon URL" ;
+  rdfs:range xsd:string ;
+.
+po:paletteElementLabelPosition
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Label position" ;
+  rdfs:range xsd:string ;
+.
+po:paletteElementShape
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Shape of Palette Element" ;
+  rdfs:range xsd:string ;
+.
+po:paletteElementUsesImage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Use Images instead of Shape" ;
+  rdfs:range xsd:boolean ;
+.
+<http://fhnw.ch/modelingEnvironment/dkmm#Data_Document>
+  rdfs:subClassOf <http://fhnw.ch/modelingEnvironment/DomainOntology#DomainOntologyConcept> ;
+.
+bpmn:DataType
+  rdfs:label "Data" ;
+.
+bpmn:UserTask
+  rdfs:range xsd:string ;
+  rdfs:range "true"^^xsd:boolean ;
+.
+<http://ikm-group.ch/ontology-based-modelling-environment>
+  owl:imports <http://ikm-group.ch/archiMEO/BPMN> ;
+.
