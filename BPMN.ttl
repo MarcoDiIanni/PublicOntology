@@ -188,6 +188,7 @@ bpmn:MessageEndEvent
 .
 bpmn:MessageFlow
   rdf:type owl:Class ;
+  rdfs:comment "The BPMN modeling objects and shows how these objects can connect to one another through Message Flow. (Axway et al., 2009: p.35 ) (Brun 2010)" ;
   rdfs:label "MessageFlow" ;
   rdfs:subClassOf bpmn:ConnectingObject ;
 .
@@ -303,23 +304,4 @@ bpmn:bpmnProcessRepresentsBusinessProcess
 emo:BPMNConsistsOfGroup
   rdfs:range bpmn:Group ;
 .
-<http://ikm-group.ch/archimeo/bpaas#GeneratingCustomerBillingData>
-  rdf:type rdfs:Class ;
-  rdfs:label "GeneratingCustomerBillingData" ;
-  rdfs:subClassOf bpmn:Group ;
-.
-<http://ikm-group.ch/archimeo/bpaas#ManagingCustomerRelationship>
-  rdf:type rdfs:Class ;
-  rdfs:label "ManagingCustomerRelationship" ;
-  rdfs:subClassOf bpmn:Group ;
-.
-<http://ikm-group.ch/archimeo/bpaas#TransmittingBillingData>
-  rdf:type rdfs:Class ;
-  rdfs:label "TransmittingBillingData" ;
-  rdfs:subClassOf bpmn:Group ;
-.
-<http://ikm-group.ch/archimeo/bpaas#Wholeprocess_sendinvoice>
-  rdf:type rdfs:Class ;
-  rdfs:label "Wholeprocess_sendinvoice" ;
-  rdfs:subClassOf bpmn:Group ;
-.
+

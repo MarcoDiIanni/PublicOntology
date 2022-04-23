@@ -426,3 +426,6 @@ dsml4ptm:sequenceFlowHasDecisionValue
   rdfs:label "Sequence flow with decision" ;
   rdfs:range xsd:boolean ;
 .
+dsml4ptm:ICFStandard
+  a owl:Class ;
+.

@@ -6,8 +6,10 @@
 # imports: http://fhnw.ch/modelingEnvironment/dkmm
 # imports: http://ikm-group.ch/archimeo
 # imports: http://ikm-group.ch/archimeo/bpaas
+
 # prefix: lo
 
+@prefix cmmn: <http://ikm-group.ch/archimeo/cmmn#> .
 @prefix DomainOntology: <http://fhnw.ch/modelingEnvironment/DomainOntology#> .
 @prefix OrganizationalModel: <http://fhnw.ch/OrganizationalModel#> .
 @prefix archi: <http://ikm-group.ch/archiMEO/archimate#> .
@@ -262,23 +264,26 @@ lo:ArchiMate_TechnologyView
 lo:BPMNProcessModelingView
   rdf:type lo:ModelingView ;
   lo:isMainModelingView "true"^^xsd:boolean ;
-  lo:viewIsPartOfModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  lo:viewIsPartOfModelingLanguage lo:BPMN_2_0 ;
   rdfs:label "Process Modeling View" ;
 .
-<http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0>
+lo:BPMN_2_0
   rdf:type lo:ModelingLanguage ;
   rdfs:label "BPMN 2.0" ;
 .
+#Todo: the following process modeling view is empty
 lo:BPaaSProcessModelingView
   rdf:type lo:ModelingView ;
   lo:isMainModelingView "true"^^xsd:boolean ;
   lo:viewIsPartOfModelingLanguage lo:BPaaS_ModelingLanguage ;
   rdfs:label "Process Modeling View" ;
 .
+
 lo:BPaaS_ModelingLanguage
   rdf:type lo:ModelingLanguage ;
   rdfs:label "BPaaS ModelingLanguage" ;
 .
+#Todo: the following process modeling view is empty
 lo:BusinessProcessRequirementModelingView
   rdf:type lo:ModelingView ;
   lo:isMainModelingView "false"^^xsd:boolean ;
@@ -296,6 +301,7 @@ lo:CombinationNotAllowed
   rdfs:label "This concept has the purpose to represent all the source-target combinations between instance elements that an instance relation should be not allowed" ;
   rdfs:subClassOf owl:Thing ;
 .
+#Todo: the following Modeling Language is empty
 lo:ControlElementModelingLanguage
   rdf:type lo:ModelingLanguage ;
   rdfs:label "Control Element Modeling Language" ;
@@ -310,6 +316,7 @@ lo:DSML4PTMControlElementModelingView
   lo:viewIsPartOfModelingLanguage lo:DSML4PTM ;
   rdfs:label "Control Element Modeling View" ;
 .
+#Todo: the following Modeling Language is empty
 lo:DSML4PTMDecisionModelingView
   rdf:type lo:ModelingView ;
   lo:isMainModelingView "false"^^xsd:boolean ;
@@ -333,10 +340,12 @@ lo:DSML4PTMProcessModelingView
   lo:viewIsPartOfModelingLanguage lo:DSML4PTM ;
   rdfs:label "Process Modeling View" ;
 .
+#todo what is this?
 lo:Data_Document_1
   rdf:type dkmm:Data_Document ;
   rdfs:label "7" ;
 .
+#todo what is this?
 lo:DatatypeProperty_1
   rdf:type owl:DatatypeProperty ;
   rdfs:label "datatype" ;
@@ -470,6 +479,7 @@ lo:UserTask_1
   rdf:type bpmn:UserTask ;
   rdfs:label "" ;
 .
+#Todo: the following process modeling view is empty
 lo:WorkflowDescriptionModelingView
   rdf:type lo:ModelingView ;
   lo:isMainModelingView "false"^^xsd:boolean ;
@@ -636,13 +646,13 @@ eo:EnterpriseObject
 nco:NCO
   rdfs:subClassOf DomainOntology:DomainOntologyConcept ;
 .
-<http://ikm-group.ch/archimeo/cmmn#DiscretionaryTask>
+cmmn:DiscretionaryTask
   rdf:type rdfs:Class ;
 .
-<http://ikm-group.ch/archimeo/cmmn#Sentry>
+cmmn:Sentry
   rdfs:subClassOf lo:ModelingElement ;
 .
-<http://ikm-group.ch/archimeo/cmmn#Task>
+cmmn:Task
   rdfs:subClassOf lo:ModelingElement ;
 .
 <http://ikm-group.ch/archimeo/iso42010#ADMetaModel>
@@ -656,4 +666,7 @@ owl:Class
 .
 owl:Thing
   rdf:type owl:Class ;
+.
+lo:CanvasView
+  lo:isMainModelingView true ;
 .

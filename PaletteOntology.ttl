@@ -15,71 +15,12 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix top: <http://ikm-group.ch/archiMEO/top#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dkmm: <http://fhnw.ch/modelingEnvironment/dkmm#> .
+@prefix cmmn: <http://ikm-group.ch/archimeo/cmmn#> .
+@prefix orgm: <http://fhnw.ch/OrganizationalModel/orgm#> .
+@prefix bpaas: <http://ikm-group.ch/archimeo/bpaas#> .
 
-sapscenes:Canvases
-  a owl:Class ;
-  rdfs:subClassOf <http://fhnw.ch/SAPScenes#SceneObject> ;
-.
-sapscenes:EmpathyMap
-  a owl:Class ;
-  rdfs:subClassOf sapscenes:Canvases ;
-.
-sapscenes:Feel
-  a owl:Class ;
-  rdfs:label "Feel" ;
-  rdfs:subClassOf sapscenes:EmpathyMapping ;
-.
-sapscenes:Gain
-  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
-.
-sapscenes:GainCreator
-  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
-.
-sapscenes:Name
-  a owl:DatatypeProperty ;
-  rdfs:domain sapscenes:EmpathyMap ;
-  rdfs:label "Name" ;
-  rdfs:range xsd:string ;
-.
-sapscenes:Pain
-  a owl:Class ;
-  rdfs:label "Pain" ;
-  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
-.
-sapscenes:PainReliever
-  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
-.
-sapscenes:Saying
-  a owl:Class ;
-  rdfs:label "Saying" ;
-  rdfs:subClassOf sapscenes:EmpathyMapping ;
-.
-sapscenes:Services
-  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
-.
-sapscenes:ToDo
-  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
-.
-sapscenes:ValuePropositionCanvas
-  a owl:Class ;
-  rdfs:subClassOf sapscenes:Canvases ;
-.
-sapscenes:ValuePropositionMapping
-  a owl:Class ;
-  rdfs:subClassOf <http://fhnw.ch/SAPScenes#SceneObject> ;
-.
-sapscenes:leadsTo
-  a owl:ObjectProperty ;
-  rdfs:domain sapscenes:EmpathyMapping ;
-  rdfs:label "An Empathy Element can lead to a Value Proposition element" ;
-  rdfs:range sapscenes:ValuePropositionMapping ;
-.
-dsml4ptm:ICFStandard
-  a owl:Class ;
-.
-lo:CanvasView
-  lo:isMainModelingView true ;
-.
+#todo?
 <http://fhnw.ch/modelingEnvironment/PaletteOntology>
   owl:imports <http://fhnw.ch/modelingEnvironment/LanguageOntology> ;
 .
@@ -707,26 +648,32 @@ po:BehaviourElement_1
 po:BelongsTo_DKM
   a po:PaletteConnector ;
   po:paletteConnectorArrowBaseUsesImage true ;
+  po:paletteConnectorConfiguresArrowStroke po:Single ;
+  po:paletteConnectorConfiguresFromArrowHead po:Line ;
+  po:paletteConnectorConfiguresToArrowHead po:OpenTriangle ;
   po:paletteConstructHasHeight 50 ;
   po:paletteConstructHasModelImage "belongsTo-dkm.png" ;
   po:paletteConstructHasPaletteThumbnail "Thumbnail_belongsTo-dkm.png" ;
   po:paletteConstructHasWidth 100 ;
   po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4DKModelingView ;
   po:paletteConstructIsHiddenFromPalette false ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/modelingEnvironment/dkmm#Belongs_To> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dkmm:Belongs_To ;
   po:paletteElementUsesImage true ;
   rdfs:label "belongs to" ;
 .
 po:BelongsTo_OrgM
   a po:PaletteConnector ;
   po:paletteConnectorArrowBaseUsesImage true ;
+  po:paletteConnectorConfiguresArrowStroke po:Single ;
+  po:paletteConnectorConfiguresFromArrowHead po:Circle ;
+  po:paletteConnectorConfiguresToArrowHead po:Triangle ;
   po:paletteConstructHasHeight 50 ;
   po:paletteConstructHasModelImage "BelongsTo-OM.png" ;
   po:paletteConstructHasPaletteThumbnail "Thumbnail_BelongsTo-OM.png" ;
   po:paletteConstructHasWidth 100 ;
   po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4OrganizationalView ;
   po:paletteConstructIsHiddenFromPalette false ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#Belonging> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct orgm:Belonging ;
   po:paletteElementUsesImage true ;
   rdfs:label "belongs to" ;
 .
@@ -1183,12 +1130,13 @@ po:CashRegisterTable
   po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:CashRegisterTable ;
   rdfs:label "Cash Register Table" ;
 .
+#the following lo:CMMN_1.1 and lo:BPMN_2.0 are not existing
 po:Category_Activities
   a po:PaletteCategory_BPMN ;
   po:categoryIsShownInModelingView lo:ProcessModelingView ;
-  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPMN_2_0 ;
   po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
-  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#CMMN_1.1> ;
+  # po:paletteCategoryIsUsedInModelingLanguage lo:CMMN_1.1 ;
   po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
   rdfs:label "Activities" ;
 .
@@ -1218,11 +1166,11 @@ po:Category_Conditions
 po:Category_Connectors
   a po:PaletteCategory_BPMN ;
   po:categoryIsShownInModelingView lo:ProcessModelingView ;
-  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPMN_2_0 ;
   po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
-  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#CMMN_1.1> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:CMMN_1_1 ;
   po:paletteCategoryIsUsedInModelingLanguage lo:ControlElementModelingLanguage ;
-  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#DMN_1.1> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:DMN_1_1 ;
   po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
   po:paletteCategoryIsUsedInModelingLanguage lo:DocumentAndKnowledgeModelingLanguage ;
   po:paletteCategoryIsUsedInModelingLanguage lo:OrganizationalModelingLanguage ;
@@ -1268,7 +1216,7 @@ po:Category_Connectors4OrganizationalView
 po:Category_Data
   a po:PaletteCategory_BPMN ;
   po:categoryIsShownInModelingView lo:ProcessModelingView ;
-  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPMN_2_0 ;
   po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
   po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
   po:paletteCategoryIsUsedInModelingLanguage lo:DocumentAndKnowledgeModelingLanguage ;
@@ -1312,7 +1260,7 @@ po:Category_Document4DSML4PTMDocumentView
 po:Category_Events
   a po:PaletteCategory_BPMN ;
   po:categoryIsShownInModelingView lo:ProcessModelingView ;
-  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPMN_2_0 ;
   po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
   po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
   rdfs:label "Events" ;
@@ -1328,7 +1276,7 @@ po:Category_Events4BPMNProcessModelingView
 po:Category_Gateways
   a po:PaletteCategory_BPMN ;
   po:categoryIsShownInModelingView lo:ProcessModelingView ;
-  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPMN_2_0 ;
   po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
   po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
   rdfs:label "Gateways" ;
@@ -1344,7 +1292,7 @@ po:Category_Gateways4BPMNProcessModelingView
 po:Category_Groups
   a po:PaletteCategory_BPMN ;
   po:categoryIsShownInModelingView lo:ProcessModelingView ;
-  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPMN_2_0 ;
   po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
   po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
   po:paletteCategoryIsUsedInModelingLanguage lo:DocumentAndKnowledgeModelingLanguage ;
@@ -1399,7 +1347,7 @@ po:Category_Sentry
 po:Category_Swimlanes
   a po:PaletteCategory_BPMN ;
   po:categoryIsShownInModelingView lo:ProcessModelingView ;
-  po:paletteCategoryIsUsedInModelingLanguage <http://fhnw.ch/modelingEnvironment/LanguageOntology#BPMN_2.0> ;
+  po:paletteCategoryIsUsedInModelingLanguage lo:BPMN_2_0 ;
   po:paletteCategoryIsUsedInModelingLanguage lo:BPaaS_ModelingLanguage ;
   po:paletteCategoryIsUsedInModelingLanguage lo:DSML4PTM ;
   rdfs:label "Swimlanes" ;
@@ -1611,23 +1559,23 @@ po:Dash
 po:DataDocument
   a po:PaletteElement ;
   po:paletteConstructHasHeight 70 ;
-  po:paletteConstructHasModelImage "DataDoucment-dkm.png" ;
-  po:paletteConstructHasPaletteThumbnail "DataDoucment-dkm.png" ;
+  po:paletteConstructHasModelImage "DataDocument-dkm.png" ;
+  po:paletteConstructHasPaletteThumbnail "DataDocument-dkm.png" ;
   po:paletteConstructHasWidth 100 ;
   po:paletteConstructIsGroupedInPaletteCategory po:Category_Document4DKModelingView ;
   po:paletteConstructIsHiddenFromPalette false ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/modelingEnvironment/dkmm#Data_Document> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dkmm:Data_Document ;
   rdfs:label "Data Document " ;
 .
 po:DataDocument_4DSML4PTM
   a po:PaletteElement ;
   po:paletteConstructHasHeight 70 ;
-  po:paletteConstructHasModelImage "DataDoucment-dkm.png" ;
-  po:paletteConstructHasPaletteThumbnail "DataDoucment-dkm.png" ;
+  po:paletteConstructHasModelImage "DataDocument-dkm.png" ;
+  po:paletteConstructHasPaletteThumbnail "DataDocument-dkm.png" ;
   po:paletteConstructHasWidth 100 ;
   po:paletteConstructIsGroupedInPaletteCategory po:Category_Document4DSML4PTMDocumentView ;
   po:paletteConstructIsHiddenFromPalette false ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/modelingEnvironment/dkmm#Data_Document> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dkmm:Data_Document ;
   rdfs:label "Data Document" ;
 .
 po:DataInput
@@ -1811,7 +1759,7 @@ po:DiscretionaryTask
   po:paletteConstructHasPaletteThumbnail "Thumbnail_Discretionary_Task.png" ;
   po:paletteConstructHasWidth 100 ;
   po:paletteConstructIsHiddenFromPalette false ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://ikm-group.ch/archimeo/cmmn#DiscretionaryTask> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct cmmn:DiscretionaryTask ;
   po:paletteElementBackgroundColor "#c9dcf5" ;
   po:paletteElementIconPosition "top-left" ;
   po:paletteElementIconURL "Thumbnail_Discretionary_Task.png" ;
@@ -2122,16 +2070,17 @@ po:ExclusiveGateway
   po:paletteElementUsesImage false ;
   rdfs:label "Exclusive Gatweay" ;
 .
+#execute updated
 po:Executes
   a po:PaletteConnector ;
-  po:paletteConnectorArrowBaseUsesImage true ;
-  po:paletteConnectorConfiguresArrowStroke po:Dash ;
-  po:paletteConnectorConfiguresToArrowHead po:OpenTriangle ;
+  # po:paletteConnectorArrowBaseUsesImage true ;
+  po:paletteConnectorConfiguresArrowStroke po:Single ;
+  # po:paletteConnectorConfiguresToArrowHead po:OpenTriangle ;
   po:paletteElementUsesImage true ;
   po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
   po:paletteConstructHasHeight 70 ;
-  po:paletteConstructHasModelImage "Thumbnail_Executes.PNG" ;
-  po:paletteConstructHasPaletteThumbnail "Thumbnail_Executes.PNG" ;
+  # po:paletteConstructHasModelImage "Thumbnail_Executes.PNG" ;
+  # po:paletteConstructHasPaletteThumbnail "Thumbnail_Executes.PNG" ;
   po:paletteConstructHasWidth 100 ;
   po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesRelations ;
   po:paletteConstructIsHiddenFromPalette false ;
@@ -2315,16 +2264,18 @@ po:Gateway
   po:paletteElementUsesImage false ;
   rdfs:label "Gatweay" ;
 .
+#todo to be tested
 po:GeneratingCustomerBillingData
   a po:PaletteElement ;
   po:paletteConstructHasHeight "335" ;
-  po:paletteConstructHasModelImage "Group4Process.bmp" ;
+  po:paletteConstructHasModelImage "Group_GeneratingCustBillData.jpg" ;
   po:paletteConstructHasPaletteThumbnail "Group_GeneratingCustBillData.jpg" ;
   po:paletteConstructHasParentPaletteConstruct po:Group_4BPaaS ;
   po:paletteConstructHasWidth "755" ;
   po:paletteConstructIsGroupedInPaletteCategory po:Category_Groups4BPaaSProcessModelingView ;
   po:paletteConstructIsHiddenFromPalette "false" ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://ikm-group.ch/archimeo/bpaas#GeneratingCustomerBillingData> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpaas:GeneratingCustomerBillingData ;
+  #todo what does this mean?
   po:paletteElementUsesImage "null" ;
   rdfs:label "Generating Customer Billing Data" ;
 .
@@ -2366,7 +2317,7 @@ po:Group_4BPaaS
   a po:PaletteElement ;
   po:paletteConstructHasHeight 575 ;
   po:paletteConstructHasModelImage "Group_whole_process.png" ;
-  po:paletteConstructHasPaletteThumbnail "SmallGroup.png" ;
+  po:paletteConstructHasPaletteThumbnail "smallGroup.png" ;
   po:paletteConstructHasWidth 835 ;
   po:paletteConstructIsGroupedInPaletteCategory po:Category_Groups4BPaaSProcessModelingView ;
   po:paletteConstructIsHiddenFromPalette false ;
@@ -2411,29 +2362,35 @@ po:HalfTriangleTop
   a po:ArrowHead ;
   rdfs:label "HalfTriangleTop" ;
 .
+#TODO tripleBackSlash instead of 3 horizzontal lines arrowhead
 po:HasRole_OrgM
   a po:PaletteConnector ;
   po:paletteConnectorArrowBaseUsesImage true ;
+  po:paletteConnectorConfiguresArrowStroke po:Dash ;
+  po:paletteConnectorConfiguresFromArrowHead po:TripleBackSlash ;
+  po:paletteConnectorConfiguresToArrowHead po:BackwardFork ;
   po:paletteConstructHasHeight 50 ;
   po:paletteConstructHasModelImage "HasRole-OM.png" ;
   po:paletteConstructHasPaletteThumbnail "Thumbnail_HasRole-OM.png" ;
   po:paletteConstructHasWidth 100 ;
   po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4OrganizationalView ;
   po:paletteConstructIsHiddenFromPalette false ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#RoleAssignment> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct orgm:RoleAssignment ;
   po:paletteElementUsesImage true ;
   rdfs:label "has Role" ;
 .
 po:HasSubDocument_DKM
   a po:PaletteConnector ;
   po:paletteConnectorArrowBaseUsesImage true ;
+  po:paletteConnectorConfiguresArrowStroke po:Single ;
+  po:paletteConnectorConfiguresToArrowHead po:Triangle ;
   po:paletteConstructHasHeight 50 ;
   po:paletteConstructHasModelImage "hasSubDocument-dkm.png" ;
   po:paletteConstructHasPaletteThumbnail "Thumbnail_hasSubDocument-dkm.png" ;
   po:paletteConstructHasWidth 100 ;
   po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4DKModelingView ;
   po:paletteConstructIsHiddenFromPalette false ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/modelingEnvironment/dkmm#HasSubDocument> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct dkmm:HasSubDocument ;
   po:paletteElementUsesImage true ;
   rdfs:label "has sub-document" ;
 .
@@ -2609,29 +2566,35 @@ po:IntermediateEvent
   po:paletteElementUsesImage false ;
   rdfs:label "Intermediate Event" ;
 .
+#
 po:IsManager_OrgM
   a po:PaletteConnector ;
   po:paletteConnectorArrowBaseUsesImage true ;
+  po:paletteConnectorConfiguresArrowStroke po:Single ;
+  po:paletteConnectorConfiguresFromArrowHead po:BackwardOpenTriangle ;
+  po:paletteConnectorConfiguresToArrowHead po:Line ;
   po:paletteConstructHasHeight 50 ;
   po:paletteConstructHasModelImage "IsManager-OM.png" ;
   po:paletteConstructHasPaletteThumbnail "Thumbnail_IsManager-OM.png" ;
   po:paletteConstructHasWidth 100 ;
   po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4OrganizationalView ;
   po:paletteConstructIsHiddenFromPalette false ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#ManagerAssignment> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct orgm:ManagerAssignment ;
   po:paletteElementUsesImage true ;
   rdfs:label "is Manager" ;
 .
 po:IsSubordinated_OrgM
   a po:PaletteConnector ;
   po:paletteConnectorArrowBaseUsesImage true ;
+  po:paletteConnectorConfiguresArrowStroke po:Single ;
+  po:paletteConnectorConfiguresToArrowHead po:OpenTriangle ;
   po:paletteConstructHasHeight 50 ;
   po:paletteConstructHasModelImage "IsSubordinated-OM.png" ;
   po:paletteConstructHasPaletteThumbnail "Thumbnail_IsSubordinated-OM.png" ;
   po:paletteConstructHasWidth 100 ;
   po:paletteConstructIsGroupedInPaletteCategory po:Category_Connectors4OrganizationalView ;
   po:paletteConstructIsHiddenFromPalette false ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#Subordination> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct orgm:Subordination ;
   po:paletteElementUsesImage true ;
   rdfs:label "is Subordinated" ;
 .
@@ -2858,7 +2821,7 @@ po:ManagingCustomerRelationship
   po:paletteConstructHasPaletteThumbnail "Group_ManagingCR.jpg" ;
   po:paletteConstructHasWidth "155" ;
   po:paletteConstructIsHiddenFromPalette "false" ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://ikm-group.ch/archimeo/bpaas#ManagingCustomerRelationship> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpaas:ManagingCustomerRelationship ;
   po:paletteElementUsesImage "null" ;
   rdfs:label "Managing Customer Relationship" ;
 .
@@ -3188,7 +3151,7 @@ po:OrganizationalUnit
   po:paletteConstructHasWidth 70 ;
   po:paletteConstructIsGroupedInPaletteCategory po:Category_OrganizationalUnit ;
   po:paletteConstructIsHiddenFromPalette false ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#OrganizationalUnit> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct orgm:OrganizationalUnit ;
   rdfs:label "Organizational Unit" ;
 .
 po:PackageBig
@@ -3326,7 +3289,7 @@ po:Performer
   po:paletteConstructHasWidth 100 ;
   po:paletteConstructIsGroupedInPaletteCategory po:Category_Performer ;
   po:paletteConstructIsHiddenFromPalette false ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#Performer> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct orgm:OrganizationalUnit:Performer ;
   rdfs:label "Performer" ;
 .
 po:Plateau
@@ -3544,7 +3507,7 @@ po:Role
   po:paletteConstructHasWidth 50 ;
   po:paletteConstructIsGroupedInPaletteCategory po:Category_Role ;
   po:paletteConstructIsHiddenFromPalette false ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://fhnw.ch/OrganizationalModel/orgm#Role> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct orgm:Role ;
   rdfs:label "Role" ;
 .
 po:RoundedTriangle
@@ -3916,8 +3879,8 @@ po:Student
 .
 po:SubReceiveActivity
   a po:PaletteElement ;
-  po:paletteConstructHasParentPaletteConstruct "http://fhnw.ch/modelingEnvironment/LanguageOntology#ReceiveTask" ;
-  po:paletteConstructIsGroupedInPaletteCategory "lo:Category_Activities" ;
+  po:paletteConstructHasParentPaletteConstruct lo:ReceiveTask ;
+  po:paletteConstructIsGroupedInPaletteCategory lo:Category_Activities ;
   po:paletteConstructIsHiddenFromPalette "false" ;
   po:paletteElementUsesImage "null" ;
   rdfs:label "Subtask Receive Activity" ;
@@ -4229,18 +4192,20 @@ po:TerminateEvent
 .
 po:TestActivity
   a po:PaletteElement ;
-  po:paletteConstructHasParentPaletteConstruct "lo:ManualTask" ;
-  po:paletteConstructIsGroupedInPaletteCategory "lo:Category_Activities" ;
+  po:paletteConstructHasParentPaletteConstruct lo:ManualTask ;
+  po:paletteConstructIsGroupedInPaletteCategory lo:Category_Activities ;
   po:paletteConstructIsHiddenFromPalette "false" ;
+  #todo test
   po:paletteElementUsesImage "null" ;
   rdfs:label "Test Activity" ;
 .
+#todo remove test elements?
 po:TestSub
   a po:PaletteElement ;
-  po:paletteConstructHasParentPaletteConstruct "http://fhnw.ch/modelingEnvironment/LanguageOntology#Subprocess" ;
-  po:paletteConstructIsGroupedInPaletteCategory "http://fhnw.ch/modelingEnvironment/LanguageOntology#Category_Activities" ;
+  po:paletteConstructHasParentPaletteConstruct lo:Subprocess ;
+  po:paletteConstructIsGroupedInPaletteCategory lo:Category_Activities ;
   po:paletteConstructIsHiddenFromPalette "false" ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct "bpmn:TestSub" ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpmn:TestSub ;
   po:paletteElementUsesImage "null" ;
   rdfs:label "Test Sub" ;
 .
@@ -4354,7 +4319,7 @@ po:TransmittingBillingData
   po:paletteConstructHasPaletteThumbnail "Group_TransmittingBillData.jpg" ;
   po:paletteConstructHasWidth "155" ;
   po:paletteConstructIsHiddenFromPalette "false" ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://ikm-group.ch/archimeo/bpaas#TransmittingBillingData> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpaas:TransmittingBillingData ;
   po:paletteElementUsesImage "true" ;
   rdfs:label "Transmitting Billing Data" ;
 .
@@ -4667,7 +4632,7 @@ po:Wholeprocess_sendinvoice
   po:paletteConstructHasParentPaletteConstruct po:Group_4BPaaS ;
   po:paletteConstructHasWidth "1120" ;
   po:paletteConstructIsHiddenFromPalette "false" ;
-  po:paletteConstructIsRelatedToModelingLanguageConstruct <http://ikm-group.ch/archimeo/bpaas#Wholeprocess_sendinvoice> ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct bpaas:Wholeprocess_sendinvoice ;
   po:paletteElementUsesImage "true" ;
   rdfs:label "Whole process_send invoice" ;
 .
@@ -4748,20 +4713,20 @@ po:graphicalElementY
 .
 po:hasAge
   a rdf:Property ;
-  rdfs:domain <http://fhnw.ch/SAPScenes#Character> ;
+  rdfs:domain sapscenes:Character ;
   rdfs:domain sapscenes:EmpathyMapping ;
   rdfs:range xsd:integer ;
 .
 po:hasNote
   a po:PaletteConnector ;
-  po:paletteConnectorArrowBaseUsesImage true ;
+  # po:paletteConnectorArrowBaseUsesImage true ;
   po:paletteConnectorConfiguresArrowStroke po:Dash ;
   po:paletteConnectorConfiguresToArrowHead po:OpenTriangle ;
   po:paletteElementUsesImage true ;
   po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
   po:paletteConstructHasHeight 70 ;
-  po:paletteConstructHasModelImage "Thumbnail_hasNote.PNG" ;
-  po:paletteConstructHasPaletteThumbnail "Thumbnail_hasNote.PNG" ;
+  # po:paletteConstructHasModelImage "Thumbnail_hasNote.PNG" ;
+  # po:paletteConstructHasPaletteThumbnail "Thumbnail_hasNote.PNG" ;
   po:paletteConstructHasWidth 100 ;
   po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesRelations ;
   po:paletteConstructIsHiddenFromPalette false ;
@@ -4783,14 +4748,14 @@ po:hasRating
 .
 po:hasRelation
   a po:PaletteConnector ;
-  po:paletteConnectorArrowBaseUsesImage true ;
-  po:paletteConnectorConfiguresArrowStroke po:Dash ;
+  # po:paletteConnectorArrowBaseUsesImage true ;
+  po:paletteConnectorConfiguresArrowStroke po:Single ;
   po:paletteConnectorConfiguresToArrowHead po:OpenTriangle ;
   po:paletteElementUsesImage true ;
   po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
   po:paletteConstructHasHeight 70 ;
-  po:paletteConstructHasModelImage "Thumbnail_hasRelation.PNG" ;
-  po:paletteConstructHasPaletteThumbnail "Thumbnail_hasRelation.PNG" ;
+  # po:paletteConstructHasModelImage "Thumbnail_hasRelation.PNG" ;
+  # po:paletteConstructHasPaletteThumbnail "Thumbnail_hasRelation.PNG" ;
   po:paletteConstructHasWidth 100 ;
   po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesRelations ;
   po:paletteConstructIsHiddenFromPalette false ;

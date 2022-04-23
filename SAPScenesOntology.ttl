@@ -635,3 +635,61 @@ sapscenes:hasRelation
   a sapscenes:Warranty ;
   rdfs:label "2 Years" ;
 .
+sapscenes:Canvases
+  a owl:Class ;
+  rdfs:subClassOf sapscenes:SceneObject ;
+.
+sapscenes:EmpathyMap
+  a owl:Class ;
+  rdfs:subClassOf sapscenes:Canvases ;
+.
+sapscenes:Feel
+  a owl:Class ;
+  rdfs:label "Feel" ;
+  rdfs:subClassOf sapscenes:EmpathyMapping ;
+.
+sapscenes:Gain
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:GainCreator
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:Name
+  a owl:DatatypeProperty ;
+  rdfs:domain sapscenes:EmpathyMap ;
+  rdfs:label "Name" ;
+  rdfs:range xsd:string ;
+.
+sapscenes:Pain
+  a owl:Class ;
+  rdfs:label "Pain" ;
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:PainReliever
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:Saying
+  a owl:Class ;
+  rdfs:label "Saying" ;
+  rdfs:subClassOf sapscenes:EmpathyMapping ;
+.
+sapscenes:Services
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:ToDo
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:ValuePropositionCanvas
+  a owl:Class ;
+  rdfs:subClassOf sapscenes:Canvases ;
+.
+sapscenes:ValuePropositionMapping
+  a owl:Class ;
+  rdfs:subClassOf sapscenes:SceneObject ;
+.
+sapscenes:leadsTo
+  a owl:ObjectProperty ;
+  rdfs:domain sapscenes:EmpathyMapping ;
+  rdfs:label "An Empathy Element can lead to a Value Proposition element" ;
+  rdfs:range sapscenes:ValuePropositionMapping ;
+.

@@ -1709,3 +1709,23 @@ fbpdo:fbpdo_Action-label-
   rdf:subject fbpdo:Action ;
   rdfs:label "Collaborate" ;
 .
+bpaas:GeneratingCustomerBillingData
+  rdf:type rdfs:Class ;
+  rdfs:label "GeneratingCustomerBillingData" ;
+  rdfs:subClassOf bpmn:Group ;
+.
+bpaas:ManagingCustomerRelationship
+  rdf:type rdfs:Class ;
+  rdfs:label "ManagingCustomerRelationship" ;
+  rdfs:subClassOf bpmn:Group ;
+.
+bpaas:TransmittingBillingData
+  rdf:type rdfs:Class ;
+  rdfs:label "TransmittingBillingData" ;
+  rdfs:subClassOf bpmn:Group ;
+.
+bpaas:Wholeprocess_sendinvoice
+  rdf:type rdfs:Class ;
+  rdfs:label "Wholeprocess_sendinvoice" ;
+  rdfs:subClassOf bpmn:Group ;
+.
