@@ -109,11 +109,6 @@ bpmn:EndEvent
   rdfs:subClassOf bpmn:Event ;
   rdfs:subClassOf eo:BusinessProcessEvent ;
 .
-bpmn:ErrorEndEvent
-  rdf:type owl:Class ;
-  rdfs:label "ErrorEndEvent" ;
-  rdfs:subClassOf bpmn:EndEvent ;
-.
 
 bpmn:Event
   rdf:type owl:Class ;
