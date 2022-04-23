@@ -74,11 +74,7 @@ bpmn:CatchingMessageIntermediateEvent
   rdfs:label "CatchingMessageIntermediateEvent" ;
   rdfs:subClassOf bpmn:MessageIntermediateEvent ;
 .
-bpmn:CatchingTimerIntermediateEvent
-  rdf:type owl:Class ;
-  rdfs:label "Catching Timer Intermediate Event" ;
-  rdfs:subClassOf bpmn:TimerIntermediateEvent ;
-.
+
 bpmn:ConditionalIntermediateEvent
   rdf:type owl:Class ;
   rdfs:label "ConditionalIntermediateEvent" ;
