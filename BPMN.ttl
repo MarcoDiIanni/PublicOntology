@@ -69,11 +69,6 @@ bpmn:CallActivity
 Activity acts as a ‘wrapper’ for the invocation of a global Process or Global Task within the execution.\" (OMG 2009)""" ;
   rdfs:subClassOf bpmn:Activity ;
 .
-bpmn:CatchingMessageIntermediateEvent
-  rdf:type owl:Class ;
-  rdfs:label "CatchingMessageIntermediateEvent" ;
-  rdfs:subClassOf bpmn:MessageIntermediateEvent ;
-.
 
 bpmn:ConditionalIntermediateEvent
   rdf:type owl:Class ;
