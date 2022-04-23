@@ -70,16 +70,7 @@ Activity acts as a ‘wrapper’ for the invocation of a global Process or Globa
   rdfs:subClassOf bpmn:Activity ;
 .
 
-bpmn:ConditionalIntermediateEvent
-  rdf:type owl:Class ;
-  rdfs:label "ConditionalIntermediateEvent" ;
-  rdfs:subClassOf bpmn:IntermediateEvent ;
-.
-bpmn:ConditionalStartEvent
-  rdf:type owl:Class ;
-  rdfs:label "ConditionalStartEvent" ;
-  rdfs:subClassOf bpmn:StartEvent ;
-.
+
 bpmn:ConnectingObject
   rdf:type owl:Class ;
   rdfs:comment "Connecting Objects, for showing the order in which activities are performed (sequence flow), the flow of messages between business entities (message flow), and addi- tional information attached to flow objects (association)" ;
@@ -123,11 +114,7 @@ bpmn:ErrorEndEvent
   rdfs:label "ErrorEndEvent" ;
   rdfs:subClassOf bpmn:EndEvent ;
 .
-bpmn:ErrorIntermediateEvent
-  rdf:type owl:Class ;
-  rdfs:label "ErrorIntermediateEvent" ;
-  rdfs:subClassOf bpmn:IntermediateEvent ;
-.
+
 bpmn:Event
   rdf:type owl:Class ;
   rdfs:subClassOf bpmn:FlowObject ;
@@ -275,11 +262,7 @@ bpmn:TextAnnotation
   rdfs:label "Text Annotation" ;
   rdfs:subClassOf bpmn:Artifact ;
 .
-bpmn:ThrowingIntermediateEvent
-  rdf:type owl:Class ;
-  rdfs:label "ThrowingIntermediateEvent" ;
-  rdfs:subClassOf bpmn:IntermediateEvent ;
-.
+
 bpmn:TimerIntermediateEvent
   rdf:type owl:Class ;
   rdfs:label "TimerIntermediateEvent" ;
