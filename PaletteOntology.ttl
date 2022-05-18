@@ -1144,6 +1144,7 @@ po:Category_Activities4BPMNProcessModelingView
   a po:PaletteCategory ;
   po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
   po:paletteCategoryIsShownInModelingView lo:BPaaSProcessModelingView ;
+   po:paletteCategoryIsShownInModelingView lo:BPMN4PPProcessModelingView ;
   po:paletteCategoryOrderNumber 1 ;
   rdfs:label "Activities" ;
 .
@@ -1181,6 +1182,7 @@ po:Category_Connectors4BPMNProcessModelingView
   po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
   po:paletteCategoryIsShownInModelingView lo:BPaaSProcessModelingView ;
   po:paletteCategoryIsShownInModelingView lo:WorkflowModelingView ;
+   po:paletteCategoryIsShownInModelingView lo:BPMN4PPProcessModelingView ;
   po:paletteCategoryOrderNumber 7 ;
   rdfs:label "Connectors" ;
 .
@@ -1226,6 +1228,7 @@ po:Category_Data4BPMNProcessModelingView
   a po:PaletteCategory ;
   po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
   po:paletteCategoryIsShownInModelingView lo:BPaaSProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:BPMN4PPProcessModelingView ;
   po:paletteCategoryOrderNumber 2 ;
   rdfs:label "Data" ;
 .
@@ -1270,6 +1273,7 @@ po:Category_Events4BPMNProcessModelingView
   po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
   po:paletteCategoryIsShownInModelingView lo:BPaaSProcessModelingView ;
   po:paletteCategoryIsShownInModelingView lo:DSML4PTMProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:BPMN4PPProcessModelingView ;
   po:paletteCategoryOrderNumber 3 ;
   rdfs:label "Events" ;
 .
@@ -1284,6 +1288,7 @@ po:Category_Gateways
 po:Category_Gateways4BPMNProcessModelingView
   a po:PaletteCategory ;
   po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
+   po:paletteCategoryIsShownInModelingView lo:BPMN4PPProcessModelingView ;
   po:paletteCategoryIsShownInModelingView lo:BPaaSProcessModelingView ;
   po:paletteCategoryIsShownInModelingView lo:DSML4PTMProcessModelingView ;
   po:paletteCategoryOrderNumber 4 ;
@@ -1302,6 +1307,7 @@ po:Category_Groups4BPMNProcessModelingView
   a po:PaletteCategory ;
   po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
   po:paletteCategoryIsShownInModelingView lo:DSML4PTMProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:BPMN4PPProcessModelingView ;
   po:paletteCategoryOrderNumber 5 ;
   rdfs:label "Groups" ;
 .
@@ -1356,6 +1362,7 @@ po:Category_Swimlanes4BPMN
   a po:PaletteCategory ;
   po:paletteCategoryIsShownInModelingView lo:BPMNProcessModelingView ;
   po:paletteCategoryIsShownInModelingView lo:BPaaSProcessModelingView ;
+  po:paletteCategoryIsShownInModelingView lo:BPMN4PPProcessModelingView ;
   po:paletteCategoryOrderNumber 6 ;
   rdfs:label "Swimlanes" ;
 .

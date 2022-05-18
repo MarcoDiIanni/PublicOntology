@@ -229,6 +229,7 @@ dsml4ptm:PrepareKoGu3
   owl:imports <http://fhnw.ch/modelingEnvironment/dkmm> ;
   owl:imports <http://ikm-group.ch/archimeo> ;
   owl:imports <http://ikm-group.ch/archimeo/bpaas> ;
+  
   owl:versionInfo 1.1 ;
 .
 lo:AnnotationProperty_1
@@ -669,4 +670,14 @@ owl:Thing
 .
 lo:CanvasView
   lo:isMainModelingView true ;
+.
+lo:BPMN4PPProcessModelingView
+  rdf:type lo:ModelingView ;
+  lo:isMainModelingView "true"^^xsd:boolean ;
+  lo:viewIsPartOfModelingLanguage lo:BPMN4PP ;
+  rdfs:label "Process Modeling View" ;
+.
+lo:BPMN4PP
+  rdf:type lo:ModelingLanguage ;
+  rdfs:label "BPMN4PP" ;
 .
